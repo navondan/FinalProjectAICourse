@@ -1,0 +1,276 @@
+{
+  "set": "EVALUATION-INPUTS.yaml",
+  "run_tag": "20261119T164501",
+  "turns": {
+    "M-I-01": {
+      "item_id": "M-I-01",
+      "workflow": "maya",
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "M-I-01-20261119T164501",
+      "request_id": "M-I-01:1",
+      "trace_id": "56d089469ad392a17277511fe631eb19",
+      "status": "completed"
+    },
+    "M-I-02": {
+      "item_id": "M-I-02",
+      "workflow": "maya",
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "M-I-02-20261119T164501",
+      "request_id": "M-I-02:1",
+      "trace_id": "0d43c2077c854dd01b70513ed872807d",
+      "status": "completed"
+    },
+    "M-I-03": {
+      "item_id": "M-I-03",
+      "workflow": "maya",
+      "turn": null,
+      "caller_employee_id": "E004",
+      "session_id": "M-I-03-20261119T164501",
+      "request_id": "M-I-03:1",
+      "trace_id": "e99c0264148549f64f7940b49a3a96ac",
+      "status": "completed"
+    },
+    "M-S-01:1": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 1,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:1",
+      "trace_id": "5a6341de4ddd0312510cafb76f21269f",
+      "status": "completed"
+    },
+    "M-S-01:2": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 2,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:2",
+      "trace_id": "3d04cbf46ee8af0c00d51b141d074117",
+      "status": "blocked"
+    },
+    "M-S-01:3": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 3,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:3",
+      "trace_id": "ad5674be784b032572d753e61aa17010",
+      "status": "blocked"
+    },
+    "M-S-01:4": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 4,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:4",
+      "trace_id": "6749e7dacf5ea7237e7e70c9d2ec20ba",
+      "status": "completed"
+    },
+    "M-S-01:5": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 5,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:5",
+      "trace_id": "f869eea990931cd58e36db8f9797e227",
+      "status": "blocked"
+    },
+    "M-S-01:6": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 6,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:6",
+      "trace_id": "295c23fb1347ff9e95978086a08ab8c5",
+      "status": "blocked"
+    },
+    "M-S-01:7": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 7,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:7",
+      "trace_id": "daf7e3e93c0b6497e097f1e111c1a068",
+      "status": "blocked"
+    },
+    "M-S-01:8": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 8,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:8",
+      "trace_id": "ca35981607c32654efece937593913b5",
+      "status": "completed"
+    },
+    "M-S-01:9": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 9,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:9",
+      "trace_id": "280bba3b711b95688b1b0c0dfe2f2a05",
+      "status": "completed"
+    },
+    "M-S-01:10": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 10,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:10",
+      "trace_id": "44376fc6c08bb52457e8e35698ef346e",
+      "status": "blocked"
+    },
+    "M-S-01:11": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 11,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:11",
+      "trace_id": "63a5c12099e56fc76e0ecca4af774dfe",
+      "status": "needs_human"
+    },
+    "M-S-01:12": {
+      "item_id": "M-S-01",
+      "workflow": "maya",
+      "turn": 12,
+      "caller_employee_id": "E004",
+      "session_id": "M-S-01-20261119T164501",
+      "request_id": "M-S-01:12",
+      "trace_id": "d2eb598e5ae269233ad601d2953f1015",
+      "status": "needs_human"
+    },
+    "M-S-02:1": {
+      "item_id": "M-S-02",
+      "workflow": "maya",
+      "turn": 1,
+      "caller_employee_id": "E001",
+      "session_id": "M-S-02-20261119T164501",
+      "request_id": "M-S-02:1",
+      "trace_id": "0d93a2a73c784c5627d44f9fb553828c",
+      "status": "completed"
+    },
+    "M-S-02:2": {
+      "item_id": "M-S-02",
+      "workflow": "maya",
+      "turn": 2,
+      "caller_employee_id": "E001",
+      "session_id": "M-S-02-20261119T164501",
+      "request_id": "M-S-02:2",
+      "trace_id": "aaf9c1f00638f7da12b0dd43d6e50d50",
+      "status": "completed"
+    },
+    "M-S-02:3": {
+      "item_id": "M-S-02",
+      "workflow": "maya",
+      "turn": 3,
+      "caller_employee_id": "E001",
+      "session_id": "M-S-02-20261119T164501",
+      "request_id": "M-S-02:3",
+      "trace_id": "477e84103bca6337d4af7a67360d21ee",
+      "status": "completed"
+    },
+    "M-S-02:4": {
+      "item_id": "M-S-02",
+      "workflow": "maya",
+      "turn": 4,
+      "caller_employee_id": "E001",
+      "session_id": "M-S-02-20261119T164501",
+      "request_id": "M-S-02:4",
+      "trace_id": "58f958bf88c7037ba2d9142f53c8195a",
+      "status": "completed"
+    },
+    "M-S-02:5": {
+      "item_id": "M-S-02",
+      "workflow": "maya",
+      "turn": 5,
+      "caller_employee_id": "E001",
+      "session_id": "M-S-02-20261119T164501",
+      "request_id": "M-S-02:5",
+      "trace_id": "f60ce529bab93816c7e714cb3e569d2d",
+      "status": "completed"
+    },
+    "W-I-01": {
+      "item_id": "W-I-01",
+      "workflow": "webex",
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "W-I-01-20261119T164501",
+      "request_id": "W-I-01:1",
+      "trace_id": "ec8a557159323e452868c7da8db98f79",
+      "status": "completed"
+    },
+    "W-I-02": {
+      "item_id": "W-I-02",
+      "workflow": "webex",
+      "turn": null,
+      "caller_employee_id": "E018",
+      "session_id": "W-I-02-20261119T164501",
+      "request_id": "W-I-02:1",
+      "trace_id": "9036cc3e7d01c1ddded42842ff5eeaac",
+      "status": "completed"
+    },
+    "W-I-03": {
+      "item_id": "W-I-03",
+      "workflow": "webex",
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "W-I-03-20261119T164501",
+      "request_id": "W-I-03:1",
+      "trace_id": "69372c1709b7c38531cea045fba58983",
+      "status": "blocked"
+    },
+    "W-S-01:1": {
+      "item_id": "W-S-01",
+      "workflow": "webex",
+      "turn": 1,
+      "caller_employee_id": "E004",
+      "session_id": "W-S-01-20261119T164501",
+      "request_id": "W-S-01:1",
+      "trace_id": "d44b4ff5bce89a650c5aae01b7a4c064",
+      "status": "completed"
+    },
+    "W-S-01:2": {
+      "item_id": "W-S-01",
+      "workflow": "webex",
+      "turn": 2,
+      "caller_employee_id": "E004",
+      "session_id": "W-S-01-20261119T164501",
+      "request_id": "W-S-01:2",
+      "trace_id": "d1877c6a25dc494a35b22047def46169",
+      "status": "completed"
+    },
+    "W-S-01:3": {
+      "item_id": "W-S-01",
+      "workflow": "webex",
+      "turn": 3,
+      "caller_employee_id": "E004",
+      "session_id": "W-S-01-20261119T164501",
+      "request_id": "W-S-01:3",
+      "trace_id": "63fb52d23763e1ac93d39673e14ba1f4",
+      "status": "blocked"
+    },
+    "W-S-01:4": {
+      "item_id": "W-S-01",
+      "workflow": "webex",
+      "turn": 4,
+      "caller_employee_id": "E004",
+      "session_id": "W-S-01-20261119T164501",
+      "request_id": "W-S-01:4",
+      "trace_id": "929734d9db17f184c703847b6c80c75f",
+      "status": "blocked"
+    }
+  }
+}

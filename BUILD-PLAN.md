@@ -32,10 +32,10 @@ effort, required path first.
 | M8 | Renewal *(+10)* | ⬜ not started | `novaops/workflows/renewal/` is an empty package |
 | M9 | Eval loop | ⬜ not started | — |
 | M10 | Packaging *(+5)* | ⬜ not started | — |
-| **M11** | **Submission ⭐** | ⏭️ **next** | — |
+| **M11** | **Submission ⭐** | 🟡 **almost** | Evaluation run `20261119T164501` (27/27 traced, 0 failed) in `eval-runs/`; `SUBMISSION.md` filled |
 
-**Next action:** M11 — run `EVALUATION-INPUTS.yaml` once with `cli run-set` (27 required
-turns), then fill `SUBMISSION.md` from `trace-index-evaluation.json`.
+**Next action:** M11 — invite the instructor to Langfuse (Member), then set "Invitation
+accepted" in `SUBMISSION.md`. README check. Optional after that: M7/M8.
 
 **Known golden gaps (by design, not bugs):** S6/S7/S8 turn 4 expect the Webex request to be
 filed, but the M5 decision blocks it on recorded evidence (42/40 seats, AR001 blocked).
