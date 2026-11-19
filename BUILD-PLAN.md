@@ -15,7 +15,7 @@ Everything below it is the original plan, kept for its reasoning, with *As built
 reality diverged.
 
 **Last updated:** 2026-11-19 · **Tests:** 77 passing (`.\.venv\Scripts\python -m pytest`) ·
-**Repository:** local git, `main` (no remote yet) · **Deadline:** none fixed — order by marks per
+**Repository:** https://github.com/navondan/FinalProjectAICourse (`main`, pushed 2026-11-19) · **Deadline:** none fixed — order by marks per
 effort, required path first.
 
 | # | Milestone | State | Evidence |
@@ -37,8 +37,8 @@ effort, required path first.
 **Next action:** M6.5 — build the harness, then run it against `GOLDEN-DATASETS.json`.
 
 **Open items that need you (not code):**
-- [ ] Create your own remote repository and push `main` (M11 needs a URL; push early, not at
-      the end).
+- [x] Create your own remote repository and push `main` — done 2026-11-19. Push after each
+      milestone (`git push`).
 - [ ] Get the instructor's email and invite them to Langfuse with the **Member** role.
 - [ ] Remove unused keys from your local `.env` (`OPENSEARCH_COLLECTION`, `GOOGLE_API_KEY`,
       `GEMINI_MODEL_ID` — leftovers from earlier lessons; no code reads them).
@@ -59,7 +59,6 @@ effort, required path first.
 | Risk | Impact | Mitigation |
 | --- | --- | --- |
 | Langfuse Cloud removed `GET /api/public/traces` on 2026-11-16 (HTTP 410) | L12 `langfuse_reader.py`, L11 `dashboard.py` and any v1 trace reads break (M9, M11 trace index) | Read via `GET /api/public/v2/observations`, grouped by `traceId`; record trace IDs locally at run time (M6.5) |
-| No remote repository | Nothing to submit; no off-machine backup | Push `main` as soon as a remote exists |
 | Unordered runs share one database | Renewal cases suppress each other; Webex idempotency hides later writes | Harness reseeds per independent case (M6.5) |
 | Target 120/100 with optional M7–M10 | Time spent on upside before the required run exists | M6.5 and M11 dry run before any optional milestone |
 
