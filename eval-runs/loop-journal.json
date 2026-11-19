@@ -49,6 +49,78 @@
       "review": {
         "status": "baseline"
       }
+    },
+    {
+      "round": 1,
+      "kind": "candidate",
+      "recorded_at": "2026-11-19T18:54:55+00:00",
+      "change": "conversation_recall intent: recall turns answer from history with no tools (fixes S2-onboarding-maya:7 floor break)",
+      "compared_to": 0,
+      "runs": "eval-runs/runs-golden-loop-r1.json",
+      "runs_sha256": "711fc613563ccd8f53aa50b6ea68f5568a04a026b49204ae72de4436f88b12af",
+      "git_sha": "e44728f",
+      "metrics": {
+        "gate": "READY",
+        "missing_cases": [],
+        "quality": 0.7250755287009063,
+        "passed": 240,
+        "scored": 331,
+        "scores": {
+          "expected_sources": 0.14285714285714285,
+          "expected_tools": 0.6666666666666666,
+          "forbidden_facts": 1.0,
+          "forbidden_sources": 1.0,
+          "forbidden_tools": 0.9803921568627451,
+          "required_facts": 0.5423728813559322,
+          "should_use_tools": 0.6329113924050633,
+          "terminal_status": 0.9620253164556962
+        }
+      },
+      "distance": 1.39,
+      "floor_broken": [
+        "forbidden_tools: 0.980 < 1.0"
+      ],
+      "comparison": {
+        "state": "READY",
+        "floor_broken": [
+          "forbidden_tools: 0.980 < 1.0"
+        ],
+        "short": {
+          "quality": 0.1749,
+          "expected_sources": 0.6571,
+          "expected_tools": 0.1333,
+          "required_facts": 0.2576,
+          "should_use_tools": 0.1671
+        },
+        "distance_before": 1.6803,
+        "distance_after": 1.39,
+        "quality_before": 0.6858,
+        "quality_after": 0.7251,
+        "quality_delta": 0.0393,
+        "moved": {
+          "expected_sources": 0.0476,
+          "required_facts": 0.1017,
+          "should_use_tools": 0.0759
+        },
+        "per_score_delta": {
+          "expected_sources": 0.0476,
+          "expected_tools": 0.0256,
+          "forbidden_facts": 0.0,
+          "forbidden_sources": 0.0,
+          "forbidden_tools": 0.0,
+          "required_facts": 0.1017,
+          "should_use_tools": 0.0759,
+          "terminal_status": -0.0127
+        },
+        "recommendation": "reject"
+      },
+      "review": {
+        "status": "rejected",
+        "reviewer": "Dan Navon",
+        "decided_at": "2026-11-19T18:57:11+00:00",
+        "gate_recommendation": "reject",
+        "note": "quality up but forbidden_tools floor still broken (S4-constraint-carry:5)"
+      }
     }
   ]
 }
