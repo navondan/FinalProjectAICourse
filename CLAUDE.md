@@ -1,6 +1,8 @@
 # Project conventions
 
 - Follow `BUILD-PLAN.md` and complete each milestone's verification before moving on.
+- Read the `Status` section of `BUILD-PLAN.md` at the start of every working session and update
+  it (state, test count, next action, deviations, risks) before ending one.
 - Keep Maya and Webex on one shared graph with workflow-specific scopes and tool visibility.
 - Keep model calls in `novaops/core/model.py`; tool calls cross the MCP server boundary.
 - Treat caller identity and authorization as application inputs, never model inferences.

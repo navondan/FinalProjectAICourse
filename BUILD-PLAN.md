@@ -8,7 +8,67 @@ it** without reading every line of code.
 
 ---
 
+## Status — read this first, update it last
+
+**Living section.** Read it at the start of every working session; update it before ending one.
+Everything below it is the original plan, kept for its reasoning, with *As built* notes where
+reality diverged.
+
+**Last updated:** 2026-11-19 · **Tests:** 77 passing (`.\.venv\Scripts\python -m pytest`) ·
+**Repository:** local git, `main` (no remote yet) · **Deadline:** none fixed — order by marks per
+effort, required path first.
+
+| # | Milestone | State | Evidence |
+| --- | --- | --- | --- |
+| M0 | Repo skeleton | ✅ done | `docs/walkthrough/M0-repo-skeleton.md`; git initialized 2026-11-19 |
+| M1 | Foundation | ✅ done | `M1-foundation.md`; `tests/test_ingest.py`, `test_mcp_tools.py` |
+| M2 | Permissions + seat gap | ✅ done | `M2-permissions-and-seat-gap.md`; `tests/test_retrieval.py` |
+| M3 | Agent backbone | ✅ done | `M3-backbone.md`; `tests/test_agent_graph.py`, `test_write_gate.py` |
+| M4 | Maya | ✅ done | `M4-maya.md`; `tests/test_maya.py` |
+| M5 | Webex | ✅ done | `M5-webex.md`; `tests/test_webex.py`, `test_database.py` |
+| M6 | Observability ⭐ | ✅ done | `M6-observability.md`; live S9 trace, session `m6-s9-20261119b` |
+| **M6.5** | **Evaluation run harness ⭐** | ⏭️ **next** | — |
+| M7 | Vendor *(+5)* | ⬜ not started | `novaops/workflows/vendor/` is an empty package |
+| M8 | Renewal *(+10)* | ⬜ not started | `novaops/workflows/renewal/` is an empty package |
+| M9 | Eval loop | ⬜ not started | — |
+| M10 | Packaging *(+5)* | ⬜ not started | — |
+| M11 | Submission ⭐ | ⬜ not started | — |
+
+**Next action:** M6.5 — build the harness, then run it against `GOLDEN-DATASETS.json`.
+
+**Open items that need you (not code):**
+- [ ] Create your own remote repository and push `main` (M11 needs a URL; push early, not at
+      the end).
+- [ ] Get the instructor's email and invite them to Langfuse with the **Member** role.
+- [ ] Remove unused keys from your local `.env` (`OPENSEARCH_COLLECTION`, `GOOGLE_API_KEY`,
+      `GEMINI_MODEL_ID` — leftovers from earlier lessons; no code reads them).
+
+### Deviations from this plan (as built)
+
+| Plan said | What was built | Why |
+| --- | --- | --- |
+| Port L7 `reranker.py` (M1) | No reranker; FAISS + BM25 + RRF fusion only (`retrieval/store.py`) | Hybrid fusion met the M1/M2 checks; a reranker adds a model call per query |
+| `register_judges.py` auto-creates the Bedrock LLM connection (M6) | Dry-run/enable registration only; connection configured manually in Langfuse | Langfuse SDK 5.2 exposes no LLM-connection API; never upload AWS keys |
+| Port ~2 MB of L10 recorded baselines (M6) | Checks/judges/runner/comparer reimplemented; no baselines | Baseline bundle not present in this workspace; none fabricated |
+| Re-score history with `run_batched_evaluation` (M6) | Evaluator scores recorded run files offline (`cli eval`) | Offline scoring is reproducible and needs no Langfuse read access |
+| Fix the 7 failing L10 homework test classes (M4) | Homework tests not ported; Maya covered by `tests/test_maya.py` | The homework code was replaced, not ported |
+| Graph routes as anonymous lambdas | Named routers `route_after_*`; tool spans `tool.<name>` with input/output | Readable traces (M6 VERIFY, 2026-11-19) |
+
+### Risks
+
+| Risk | Impact | Mitigation |
+| --- | --- | --- |
+| Langfuse Cloud removed `GET /api/public/traces` on 2026-11-16 (HTTP 410) | L12 `langfuse_reader.py`, L11 `dashboard.py` and any v1 trace reads break (M9, M11 trace index) | Read via `GET /api/public/v2/observations`, grouped by `traceId`; record trace IDs locally at run time (M6.5) |
+| No remote repository | Nothing to submit; no off-machine backup | Push `main` as soon as a remote exists |
+| Unordered runs share one database | Renewal cases suppress each other; Webex idempotency hides later writes | Harness reseeds per independent case (M6.5) |
+| Target 120/100 with optional M7–M10 | Time spent on upside before the required run exists | M6.5 and M11 dry run before any optional milestone |
+
+---
+
 ## 0. Where you're actually starting from
+
+> **Historical — the 2026-10-22 survey.** Every gap in the table below was closed in M0–M6
+> (see Status). Kept for the reasoning behind the design, not as a to-do list.
 
 **A full survey of all 14 lesson folders was done on 2026-10-22. The headline: you have far more
 than expected — roughly 70% of the required system already exists in working form.** The project
@@ -174,6 +234,7 @@ README, which is itself graded.
 | **M4** | Maya | produce the checklist, wire the handoff, author `S9`, fix 7 tests | L | 🟢🟠 |
 | **M5** | Webex | port archived homework, re-key ids, persisted approval, idempotency | L | 🔵🟢🟠 |
 | **M6** | Observability ⭐ | write `tracing.py`; port checks + judges; the unshipped checks | M | 🟠 |
+| **M6.5** | Evaluation run harness ⭐ | replay golden/eval sets through the agent; reseed; trace index | M | 🟢🟠 |
 | **M7** | Vendor *(+5)* | adapt `lesson-03 SDD\03-validate-and-retry.py` | S *(mostly done)* | 🟠 |
 | **M8** | Renewal *(+10)* | persistence first, then the workflow. **Genuinely new.** | XL | 🔵🟢🟠 |
 | **M9** | Eval loop | copy the L12 harness, point it at your gate | S *(was M)* | 🔵🟢 |
@@ -186,8 +247,8 @@ README, which is itself graded.
 weight has shifted onto M4, M5 and M8 — the three places where something genuinely isn't
 finished.
 
-**Required path:** M0–M6 + M11. Everything else is upside. If time gets tight, **cut from M8
-backwards** (Renewal → Vendor → packaging → eval loop), never from M6.
+**Required path:** M0–M6.5 + M11. Everything else is upside. If time gets tight, **cut from M8
+backwards** (Renewal → Vendor → packaging → eval loop), never from M6 or M6.5.
 
 ---
 
@@ -259,6 +320,7 @@ think about the system, say so now — moving it later is painful.
 - **Retrieval** — port `lesson-07-…\SDD\retrieval.py` (hybrid BM25+vector, RRF fusion, filters
   injected into both branches) and `reranker.py`. ⚠️ One upgrade worth making: the reranker
   regex-extracts JSON from free text; switch it to a forced tool call like L3's.
+  *As built: no reranker — FAISS + BM25 + RRF only (see Status → Deviations).*
 - **Database** — port `lesson-08-…\code\03-multi-tool-server\server\db.py`, but **change
   `sqlite3.connect(":memory:")` to a file path.** Today the DB is rebuilt per process and every
   write vanishes on restart; idempotency is impossible against it.
@@ -418,6 +480,7 @@ before/after of what changed from `lesson-11-build`.
   "needed on turns 7, 9 and 12".
 - **Fix the 7 failing test classes** in `homework\tests\test_maya_handoff.py` and
   `test_maya_permissions.py` (all listed in `.pytest_cache/lastfailed`).
+  *As built: obsolete — the homework code was replaced, and `tests/test_maya.py` covers Maya.*
 - Webex marked **blocked** with the 42-of-40 reason and a citation.
 - **Bounded refinement**: at most *one* refined retrieval round, then answer with what you have
   and say what's missing. (The homework graph already does one round — keep that.)
@@ -520,6 +583,9 @@ why M3 swapped it.
 `langfuse.create_score(...)`; the course code uses `run_batched_evaluation`, which lets you
 **re-score history** without re-running the agent. Prefer the latter.
 
+*As built: no LLM-connection auto-creation, no recorded baselines, and offline scoring of run
+files instead of `run_batched_evaluation` — see Status → Deviations.*
+
 🟠 **VERIFY — do this one personally, it's the most important checkpoint in the project.** Open
 Langfuse, pick an `S9` trace at random, and answer out loud: who asked, what scope was chosen,
 which tools ran, what the terminal status was, and why. If you can't, the instrumentation isn't
@@ -530,6 +596,46 @@ against the course's reference implementation. The moment you pick your own retr
 tool decomposition, those stop matching a system that's behaving perfectly. **Binding:**
 required facts, forbidden facts, forbidden tools, forbidden sources. Chase the illustrative
 fields and you'll spend your time fixing your scorer instead of your system.
+
+---
+
+## M6.5 · Evaluation run harness — **required, added 2026-11-19**
+
+**Why this exists:** M11 asks for "the harness that runs `EVALUATION-INPUTS.yaml` correctly",
+but it is the largest remaining piece of the required path and nothing here builds it yet.
+The existing `cli eval` only *scores* a recorded run file; nothing *produces* one. Building it
+now also gives M7–M10 a measurement to improve against.
+
+**I build:**
+- `novaops/evals/harness.py` + `cli run-set --set GOLDEN-DATASETS.json|EVALUATION-INPUTS.yaml
+  --output runs.json --trace-index trace-index.json`.
+- **Isolation:** each one-shot input and each session gets a fresh database copy
+  (schema + seed into a temp path) and a fresh checkpoint file. Never reset the developer DB.
+- **Continuity:** a session's turns run in order on **one** thread and one database.
+- **Clock:** `NOVAOPS_AS_OF_DATE=2026-07-01` for every case (Renewal's effective-date run is the
+  documented exception, M8).
+- **Identity:** caller comes from the item's `caller.employee_id`; the group is still resolved
+  from the database, never taken from the file.
+- **One trace per turn:** a deterministic request ID per turn (`<item-id>:<n>`); a
+  pause-and-resume stays on the same workflow request ID.
+- **Output:** `runs.json` in the format `cli eval` already reads
+  (`{"<item-id>:<n>": {answer, status, tool_history}}`), plus `trace-index.json`
+  (item → session ID, request ID, Langfuse trace ID) captured **at run time**, so the
+  submission index does not depend on the Langfuse read API.
+- A failed turn is recorded with `status: "failed"` and its error — never silently dropped.
+
+**Order of use:** run against `GOLDEN-DATASETS.json` while developing (score with `cli eval`).
+Run `EVALUATION-INPUTS.yaml` **once**, at M11.
+
+🟢 **REVIEW:** the isolation rules — one paragraph in `docs/walkthrough/M6.5-harness.md`.
+
+🟠 **VERIFY:**
+```powershell
+.\.venv\Scripts\python -m pytest tests/test_harness.py   # fake model: reseed isolation, session continuity, run-file shape
+.\.venv\Scripts\python -m novaops.cli run-set --set GOLDEN-DATASETS.json --output runs-golden.json --trace-index trace-index-golden.json
+.\.venv\Scripts\python -m novaops.cli eval --runs runs-golden.json --output eval-report-golden.json
+```
+Record the golden score in Status as the honest baseline M9 starts from.
 
 ---
 
@@ -598,6 +704,15 @@ resume, inject a reply, **confirm the seat limit still reads 40 on July 3**, the
 and confirm 50 seats + notifications. Replay every event twice: exactly one update, one
 notification per recipient.
 
+Automate each of those as a test before claiming the milestone:
+```powershell
+.\.venv\Scripts\python -m pytest tests/test_renewal.py -k "scan_urgent"           # 2026-07-01 scan flags C001 urgent
+.\.venv\Scripts\python -m pytest tests/test_renewal.py -k "restart"               # new process resumes the paused run
+.\.venv\Scripts\python -m pytest tests/test_renewal.py -k "conditional or over_ceiling"  # write nothing, escalate
+.\.venv\Scripts\python -m pytest tests/test_renewal.py -k "effective_date"        # 40 on 07-03, 50 on 07-21
+.\.venv\Scripts\python -m pytest tests/test_renewal.py -k "replay"                # duplicates: one update, one notice each
+```
+
 ---
 
 ## M9 · Eval loop *(Lesson 12, optional)*
@@ -616,6 +731,10 @@ re-evaluate, with three budgets), `evals/targets.py` (the `Gate` — targets, **
 Note the design worth keeping: **the gate never says "pass"** — it reports a *distance*, and the
 budget terminates the loop. Also copy the trick of denying the agent edit access to `evals/` so
 it can't move the goalposts.
+
+⚠️ **As of 2026-11-16:** `shared/langfuse_reader.py` almost certainly reads the removed v1
+`/api/public/traces` endpoint. Port it onto `GET /api/public/v2/observations` (group rows by
+`traceId`), or feed the loop from M6.5's local `runs.json` and skip the Langfuse read entirely.
 
 Take an **honest baseline before changing anything**. 🔵 **DECIDE:** which metric you optimize.
 🟢 **REVIEW:** each promotion. **Report before *and* after.**
@@ -647,8 +766,8 @@ property *visible by reading the repo*, which is exactly what's gradeable here.
 ## M11 · Submission — the part that's easy to fumble
 
 **I build:** the final README (every claim mapped to the file that implements it — anything
-asserted here must be visible in the code), and the harness that runs `EVALUATION-INPUTS.yaml`
-correctly:
+asserted here must be visible in the code), and run M6.5's harness against
+`EVALUATION-INPUTS.yaml` once. The harness already enforces:
 
 - **Reseed the DB before each independent case or session.** The three Renewal cases all use
   renewal run `RR-WEBEX-2026` and the same events — run them back to back on one database and
@@ -657,7 +776,9 @@ correctly:
 - **Pin the clock to 2026-07-01** everywhere (except Renewal's effective-date run).
 - **One trace per turn.** A pause-and-resume stays one trace.
 
-Expect **33 traces** at your scope (20 Maya + 7 Webex + 3 Vendor + 3 Renewal).
+Expect **33 traces** at your scope (20 Maya + 7 Webex + 3 Vendor + 3 Renewal); **27** if you
+skip the optional workflows. Fill the `SUBMISSION.md` trace index from M6.5's
+`trace-index.json`, not by searching Langfuse afterwards (its v1 trace API is gone).
 
 🟠 **VERIFY — three things only you can do:**
 1. **Clone your own repo into an empty directory** and confirm it's readable and complete.
@@ -674,7 +795,7 @@ commit too.
 
 ## 3. Sequencing rules (the ones that actually bite)
 
-1. **M6 before M7–M10.** You can't improve what you haven't measured, and there's no point
+1. **M6 → M6.5 before M7–M10.** You can't improve what you haven't measured, and there's no point
    hardening a system whose behavior isn't pinned down.
 2. **But bind Langfuse at M3**, not M6. M6 is where it becomes *complete* — nothing stops you
    tracing earlier, and debugging a 12-turn session without traces is masochism.
@@ -687,6 +808,12 @@ commit too.
 ---
 
 ## 4. What I need from you to start
+
+*Resolved: the four M0 decisions were made (local FAISS with metadata filtering, one graph with
+two scopes, dataset kept in-repo, Webex checks and judges adapted/ported — see
+`docs/walkthrough/M0-repo-skeleton.md`). Deadline: none fixed (2026-11-19) — required path
+first, then optional work by marks per effort. The instructor-invite and remote-repo items live
+in Status → Open items.*
 
 🔵 **Four decisions** (M0) — I'll present options for each: retrieval store, one-graph-vs-two,
 dataset placement, port-or-rewrite the Webex evals.
