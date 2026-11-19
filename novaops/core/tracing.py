@@ -61,6 +61,101 @@ def _json_safe(value: Any) -> Any:
     return json.loads(json.dumps(value, ensure_ascii=False, default=str))
 
 
+class StepObservation:
+    """A named workflow step span; every method is a no-op when tracing is disabled."""
+
+    def __init__(self, span: Any | None = None) -> None:
+        self._span = span
+
+    def update(self, **fields: Any) -> None:
+        if self._span is None:
+            return
+        for key in ("input", "output", "metadata"):
+            if key in fields:
+                fields[key] = _json_safe(fields[key])
+        self._span.update(**fields)
+
+
+@contextmanager
+def workflow_step(
+    name: str,
+    *,
+    input: Any = None,
+    as_type: str = "span",
+    model: str | None = None,
+) -> Iterator[StepObservation]:
+    """Open a child span (or a `generation` for model calls) under the active trace."""
+    client = _ACTIVE_CLIENT.get()
+    if client is None:
+        yield StepObservation()
+        return
+    options: dict[str, Any] = {"name": name, "as_type": as_type, "input": _json_safe(input)}
+    if model is not None:
+        options["model"] = model
+    with client.start_as_current_observation(**options) as span:
+        try:
+            yield StepObservation(span)
+        except BaseException as exc:
+            span.update(level="ERROR", status_message=str(exc)[:500])
+            raise
+
+
+@contextmanager
+def trace_workflow_run(
+    settings: Settings,
+    *,
+    name: str,
+    session_id: str,
+    request_id: str,
+    tags: list[str],
+    input: Any = None,
+    user_id: str | None = None,
+) -> Iterator[StepObservation]:
+    """One Langfuse trace for a standalone (non-agent) workflow run.
+
+    Vendor and Renewal never touch the agent graph, so they get their own root span;
+    a renewal run that pauses and resumes inside one evaluation case stays one trace.
+    """
+    has_public_key = bool(settings.langfuse_public_key)
+    if has_public_key != bool(settings.langfuse_secret_key):
+        raise ValueError(
+            "LANGFUSE_PUBLIC_KEY and LANGFUSE_SECRET_KEY must both be set or both be empty"
+        )
+    if not has_public_key:
+        _LAST_TRACE_ID.set(None)
+        yield StepObservation()
+        return
+
+    from langfuse import Langfuse, propagate_attributes
+
+    client = Langfuse(
+        public_key=settings.langfuse_public_key,
+        secret_key=settings.langfuse_secret_key,
+        host=settings.langfuse_host,
+    )
+    attributes: dict[str, Any] = {
+        "session_id": session_id,
+        "tags": ["novaops", *tags],
+        "metadata": {"request_id": request_id},
+    }
+    if user_id:
+        attributes["user_id"] = user_id
+    with propagate_attributes(**attributes):
+        with client.start_as_current_observation(
+            name=name, as_type="chain", input=_json_safe(input)
+        ) as root_span:
+            client_token = _ACTIVE_CLIENT.set(client)
+            _LAST_TRACE_ID.set(client.get_current_trace_id())
+            try:
+                yield StepObservation(root_span)
+            except BaseException as exc:
+                root_span.update(level="ERROR", status_message=str(exc)[:500])
+                raise
+            finally:
+                _ACTIVE_CLIENT.reset(client_token)
+                client.flush()
+
+
 def new_request_id(x_request_id: str | None = None) -> str:
     """Preserve a valid inbound request ID or create a UUID-based one."""
     if x_request_id is None:

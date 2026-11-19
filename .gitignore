@@ -23,6 +23,8 @@ qdrant_storage/
 faiss_index*/
 data/index/
 data/cache/
+# Runtime state: databases, workflow scratch dirs, logs, outboxes
+data/
 *.db
 *.sqlite
 *.sqlite3

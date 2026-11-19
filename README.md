@@ -80,6 +80,11 @@ decisions for reproducible evaluation runs.
 | Tool server boundary | `novaops/mcp_server/` |
 | Durable configuration and state | `novaops/core/`, `novaops-enterprise-agent-dataset/database/` |
 | Checks and evaluation datasets | `novaops/evals/`, `tests/` |
+| Vendor CRM extraction (optional) | `novaops/workflows/vendor/`, `tests/test_vendor.py` |
+| Contract renewal workflow (optional) | `novaops/workflows/renewal/`, `tests/test_renewal.py` |
+| Evaluation run harness (agent + workflow items) | `novaops/evals/harness.py`, `novaops/cli.py run-set` |
+| Eval loop: gate, journal, human promotion (optional) | `novaops/evals/targets.py`, `novaops/evals/loop.py`, `tests/test_eval_loop.py`, `eval-runs/loop-report.md` |
+| HTTP API, worker, containers (optional) | `novaops/api/app.py`, `novaops/workflows/renewal/worker.py`, `Dockerfile`, `compose.yaml`, `scripts/build-images.*`, `tests/test_packaging.py` |
 | Milestone walkthroughs | `docs/walkthrough/` |
 
 See `docs/walkthrough/M0-repo-skeleton.md` for the first milestone's design decisions and
@@ -154,3 +159,74 @@ Langfuse SDK exposes evaluator creation but not LLM-connection creation, so conf
 Bedrock provider in the Langfuse project before enabling judges. NovaOps does not upload AWS
 credentials. The supplied workspace has no recorded baseline bundle; the comparer accepts a
 saved report but no baseline results are fabricated.
+
+Replay a whole golden or evaluation set (each independent case gets a freshly seeded database;
+session turns share one) and record a trace index:
+
+```powershell
+.\.venv\Scripts\python -m novaops.cli run-set --set EVALUATION-INPUTS.yaml --output eval-runs\runs.json --trace-index eval-runs\trace-index.json
+.\.venv\Scripts\python -m novaops.cli run-set --set EVALUATION-INPUTS.yaml --only V-I-01 R-I-01 --output eval-runs\runs-optional.json --trace-index eval-runs\trace-index-optional.json
+```
+
+Vendor (`V-*`) and Renewal (`R-*`) items are run by their workflow services, not the chat agent.
+
+### Vendor and Renewal workflows (optional)
+
+Vendor extracts a CRM vendor record from a document and reports missing fields; it never
+invents a value:
+
+```powershell
+.\.venv\Scripts\python -m novaops.workflows.vendor path\to\vendor-intake.md
+```
+
+Renewal is an explicit SQLite state machine. Every event and reply is recorded once by ID, so
+replaying anything leaves one seat update and one notification per recipient. Seats change
+only on the effective date, and only for a clear approval that matches the recommendation;
+conditional, ambiguous, rejected, or over-ceiling replies go to a human.
+
+```powershell
+.\.venv\Scripts\python -m novaops.workflows.renewal --db data\renewal.sqlite3 schedule --as-of 2026-07-01
+.\.venv\Scripts\python -m novaops.workflows.renewal --db data\renewal.sqlite3 reply --fixture-id <id>
+.\.venv\Scripts\python -m novaops.workflows.renewal --db data\renewal.sqlite3 status
+.\.venv\Scripts\python -m novaops.workflows.renewal.worker --once
+```
+
+Add `--offline` for the rule-based path with no model calls. The worker runs the
+schedule once per business day and consumes `inbox/events/*.json` and `inbox/replies/*.eml`.
+
+### Eval loop (optional)
+
+The loop is evidence → diagnose → change → re-evaluate, fed by local `run-set` files. The gate
+(`novaops/evals/targets.py`) reports a *distance* to the declared targets, never a "pass".
+Safety floors (`forbidden_tools`, `forbidden_sources`, `forbidden_facts` = 1.0) cannot be
+traded for quality, and incomplete runs are INVALID rather than "worse". A named human
+promotes each round; budgets stop the loop.
+
+```powershell
+.\.venv\Scripts\python -m novaops.evals.loop baseline --runs eval-runs\runs-golden.json
+.\.venv\Scripts\python -m novaops.evals.loop diagnose
+.\.venv\Scripts\python -m novaops.evals.loop propose --runs eval-runs\runs-golden-loop-r1.json --change "..."
+.\.venv\Scripts\python -m novaops.evals.loop review --round 1 --reviewer "Your Name" --decision promote
+.\.venv\Scripts\python -m novaops.evals.loop report --output eval-runs\loop-report.md
+```
+
+### HTTP API and containers (optional)
+
+```powershell
+.\.venv\Scripts\python -m novaops.cli serve
+.\.venv\Scripts\python -m uvicorn novaops.api.app:create_app --factory --port 8000
+```
+
+`GET /health` checks the process; `GET /ready` checks the database, the index, and the MCP
+server's `/health`. `POST /chat` and `POST /approvals` wrap the same agent and approval paths
+as the CLI. The `Dockerfile` builds three targets (`mcp`, `api`, `renewal-worker`) as a
+non-root user; `compose.yaml` starts them with health-gated ordering. Build images tagged with
+the commit SHA (a dirty tree is refused):
+
+```powershell
+.\scripts\build-images.ps1
+$env:GIT_SHA = (git rev-parse --short HEAD); docker compose up
+```
+
+Docker was not available on the development machine, so the images are untested; the API
+and MCP health and readiness endpoints were checked live outside containers.

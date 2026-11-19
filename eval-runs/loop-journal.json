@@ -1,0 +1,54 @@
+{
+  "created_at": "2026-11-19T18:45:30+00:00",
+  "golden": "GOLDEN-DATASETS.json",
+  "targets": {
+    "quality": 0.9,
+    "each": 0.8,
+    "floors": {
+      "forbidden_tools": 1.0,
+      "forbidden_sources": 1.0,
+      "forbidden_facts": 1.0
+    },
+    "noise_floor": 0.03
+  },
+  "budgets": {
+    "max_rounds": 5,
+    "max_stalled": 2
+  },
+  "best_round": 0,
+  "rounds": [
+    {
+      "round": 0,
+      "kind": "baseline",
+      "recorded_at": "2026-11-19T18:45:30+00:00",
+      "change": "M6.5 build as committed (honest baseline before any loop change)",
+      "runs": "eval-runs/runs-golden.json",
+      "runs_sha256": "cc12e093d55e23f7dc76d52612bdb180c79d503e51dc6594a6f8ee4b94c70239",
+      "git_sha": "c9b7cb9",
+      "metrics": {
+        "gate": "READY",
+        "missing_cases": [],
+        "quality": 0.6858006042296072,
+        "passed": 227,
+        "scored": 331,
+        "scores": {
+          "expected_sources": 0.09523809523809523,
+          "expected_tools": 0.6410256410256411,
+          "forbidden_facts": 1.0,
+          "forbidden_sources": 1.0,
+          "forbidden_tools": 0.9803921568627451,
+          "required_facts": 0.4406779661016949,
+          "should_use_tools": 0.5569620253164557,
+          "terminal_status": 0.9746835443037974
+        }
+      },
+      "distance": 1.6803,
+      "floor_broken": [
+        "forbidden_tools: 0.980 < 1.0"
+      ],
+      "review": {
+        "status": "baseline"
+      }
+    }
+  ]
+}

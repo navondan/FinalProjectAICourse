@@ -1,0 +1,1550 @@
+{
+  "V-I-01": {
+    "workflow": "vendor",
+    "status": "completed",
+    "result": {
+      "source_id": "V-I-01",
+      "source_type": "formal_document",
+      "record": {
+        "vendor_name": "HelioDesk",
+        "legal_name": "HelioDesk Technologies Ltd.",
+        "primary_contact_name": "Ava Patel",
+        "primary_contact_email": "ava.patel@heliodesk.example",
+        "service_category": "Customer support quality assurance SaaS",
+        "internal_owner_department": "Customer Success",
+        "annual_cost_usd": 28800,
+        "contract_start_date": "2026-10-01",
+        "contract_end_date": "2027-09-30",
+        "renewal_type": "manual",
+        "payment_terms": "Net 30 days from invoice",
+        "data_sensitivity": "Confidential",
+        "security_review_required": true,
+        "website": "https://www.heliodesk.example",
+        "contact_phone": "+44 20 7946 0281",
+        "headquarters": "London, United Kingdom",
+        "implementation_notes": "The proposed pilot covers twenty SupportDesk agents. HelioDesk expects a two-week configuration period before the contract start date."
+      },
+      "missing_required_fields": [],
+      "conflicts": [],
+      "follow_up_questions": []
+    }
+  },
+  "V-I-02": {
+    "workflow": "vendor",
+    "status": "completed",
+    "result": {
+      "source_id": "V-I-02",
+      "source_type": "email_chain",
+      "record": {
+        "vendor_name": "RoutePilot",
+        "legal_name": "RoutePilot Systems Inc",
+        "primary_contact_name": "Miguel Santos",
+        "primary_contact_email": "miguel.santos@routepilot.example",
+        "service_category": "SaaS spend and renewal analytics platform",
+        "internal_owner_department": "Finance",
+        "annual_cost_usd": 18600,
+        "contract_start_date": "2026-11-15",
+        "contract_end_date": "2027-11-14",
+        "renewal_type": "automatic",
+        "payment_terms": null,
+        "data_sensitivity": "Internal",
+        "security_review_required": false,
+        "website": null,
+        "contact_phone": null,
+        "headquarters": null,
+        "implementation_notes": null
+      },
+      "missing_required_fields": [
+        "payment_terms"
+      ],
+      "conflicts": [],
+      "follow_up_questions": [
+        {
+          "field": "payment_terms",
+          "question": "What are the invoice payment terms for RoutePilot?"
+        }
+      ]
+    }
+  },
+  "V-I-03": {
+    "workflow": "vendor",
+    "status": "completed",
+    "result": {
+      "source_id": "V-I-03",
+      "source_type": "call_transcript",
+      "record": {
+        "vendor_name": "CipherNest",
+        "legal_name": null,
+        "primary_contact_name": "Nora Fischer",
+        "primary_contact_email": "nora.fischer@ciphernest.example",
+        "service_category": "Secure managed file-transfer software",
+        "internal_owner_department": "IT",
+        "annual_cost_usd": 31200,
+        "contract_start_date": "2026-12-01",
+        "contract_end_date": "2027-11-30",
+        "renewal_type": "manual",
+        "payment_terms": "Net 45",
+        "data_sensitivity": "Restricted",
+        "security_review_required": null,
+        "website": null,
+        "contact_phone": "+49 30 5557 0184",
+        "headquarters": null,
+        "implementation_notes": "three-week technical setup"
+      },
+      "missing_required_fields": [
+        "legal_name",
+        "security_review_required"
+      ],
+      "conflicts": [],
+      "follow_up_questions": [
+        {
+          "field": "legal_name",
+          "question": "What is the registered legal company name for the contract?"
+        },
+        {
+          "field": "security_review_required",
+          "question": "Has NovaOps decided whether a security review is required for this vendor?"
+        }
+      ]
+    }
+  },
+  "R-I-01": {
+    "workflow": "renewal",
+    "status": "applied",
+    "result": {
+      "summary": {
+        "item_id": "R-I-01",
+        "c001_on_2026_07_01": {
+          "contract_id": "C001",
+          "vendor": "Webex",
+          "urgent": true,
+          "notice_overdue": true,
+          "expired": false,
+          "recommendation": "expand"
+        },
+        "run_stage": "applied",
+        "status_reason": "applied on 2026-07-21 (effective 2026-07-21); audit AUD-RR-WEBEX-2026-APPLY",
+        "next_owner": null,
+        "stage_history": [
+          "2026-07-01 awaiting_internal_decision (schedule scan opened run)",
+          "2026-07-03 awaiting_clearances (IA-WEBEX-APPROVE-001)",
+          "2026-07-03 awaiting_clearances (FC-WEBEX-CLEAR-001)",
+          "2026-07-03 awaiting_supplier (SR-WEBEX-REVIEW-001)",
+          "2026-07-03 confirmed_awaiting_effective_date (<webex-approved-2026-001@webex-vendor.example>)",
+          "2026-07-21 applied (AUD-RR-WEBEX-2026-APPLY)"
+        ],
+        "agreement": {
+          "agreement_id": "AG-RR-WEBEX-2026",
+          "run_id": "RR-WEBEX-2026",
+          "contract_id": "C001",
+          "subscription_id": "SUB001",
+          "confirmation_id": "RX-WEBEX-2026-8841",
+          "seat_limit": 50,
+          "annual_cost_usd": 22000,
+          "term_start_date": "2026-07-21",
+          "term_end_date": "2027-07-20",
+          "effective_date": "2026-07-21",
+          "status": "applied",
+          "recorded_on": "2026-07-03",
+          "applied_on": "2026-07-21",
+          "audit_event_id": "AUD-RR-WEBEX-2026-APPLY",
+          "source_message_id": "<webex-approved-2026-001@webex-vendor.example>",
+          "approval_event_id": "IA-WEBEX-APPROVE-001"
+        },
+        "terms_in_effect_2026_07_03": {
+          "seat_limit": 40,
+          "active_seats": 42,
+          "annual_cost": 18400,
+          "renewal_date": "2026-07-20",
+          "start_date": "2025-07-21",
+          "end_date": "2026-07-20"
+        },
+        "terms_in_effect_2026_07_21": {
+          "seat_limit": 50,
+          "active_seats": 42,
+          "annual_cost": 22000,
+          "renewal_date": "2027-07-20",
+          "start_date": "2026-07-21",
+          "end_date": "2027-07-20"
+        },
+        "communications": [
+          {
+            "message_key": "approval-request:RR-WEBEX-2026",
+            "channel": "internal",
+            "recipient": "amir.haddad@novaops.example",
+            "subject": "[RR-WEBEX-2026] Approval needed: Webex renewal (C001)",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-01"
+          },
+          {
+            "message_key": "reply-outcome:<webex-approved-2026-001@webex-vendor.example>",
+            "channel": "internal",
+            "recipient": "amir.haddad@novaops.example",
+            "subject": "[RR-WEBEX-2026] Supplier confirmed the renewal; terms apply on the effective date",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-03"
+          },
+          {
+            "message_key": "supplier-request:RR-WEBEX-2026",
+            "channel": "provider_email",
+            "recipient": "renewals@webex-vendor.example",
+            "subject": "NovaOps renewal request for contract C001",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-03"
+          },
+          {
+            "message_key": "capacity-notice:RR-WEBEX-2026:AR001",
+            "channel": "internal",
+            "recipient": "rachel.stein@novaops.example",
+            "subject": "Webex capacity update for request AR001",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-21"
+          }
+        ],
+        "employee_notifications": [
+          {
+            "recipient": "rachel.stein@novaops.example",
+            "subject": "Webex capacity update for request AR001",
+            "body": "Hi Rachel,\n\nNovaOps' Webex seat capacity increased on 2026-07-21. Your access request AR001 was blocked because all seats were in use.\n\nThis message does not grant access. Your request is still open and now goes back to Yael Romano for a normal review; you do not need to submit a new request."
+          }
+        ],
+        "supplier_requests_sent": 1,
+        "replay_outcomes": [
+          "duplicate_ignored",
+          "duplicate_ignored",
+          "duplicate_ignored",
+          "duplicate_ignored"
+        ],
+        "audit_rows": [
+          {
+            "event_id": "AUD-FC-WEBEX-CLEAR-001",
+            "event_type": "finance_clearance",
+            "notes": "RR-WEBEX-2026: The expansion adds USD 3,600 a year, below the Q3 USD 7,500 threshold for incremental spend. No Finance hold on this request; AP002 closed."
+          },
+          {
+            "event_id": "AUD-RR-WEBEX-2026-APPLY",
+            "event_type": "renewal_applied",
+            "notes": "C001 renewed: seat_limit 40->50, term 2026-07-21..2027-07-20; approval IA-WEBEX-APPROVE-001, supplier confirmation RX-WEBEX-2026-8841 (<webex-approved-2026-001@webex-vendor.example>). active_seats unchanged at 42."
+          }
+        ],
+        "AP002": {
+          "approval_id": "AP002",
+          "status": "approved"
+        },
+        "AR001": {
+          "request_id": "AR001",
+          "status": "blocked"
+        }
+      },
+      "timeline": [
+        {
+          "step": "schedule 2026-07-01",
+          "result": {
+            "as_of": "2026-07-01",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": false,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [
+              "RR-WEBEX-2026"
+            ],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event IA-WEBEX-APPROVE-001",
+          "result": {
+            "event_id": "IA-WEBEX-APPROVE-001",
+            "outcome": "recorded",
+            "stage": "awaiting_clearances",
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event FC-WEBEX-CLEAR-001",
+          "result": {
+            "event_id": "FC-WEBEX-CLEAR-001",
+            "outcome": "recorded",
+            "stage": "awaiting_clearances",
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event SR-WEBEX-REVIEW-001",
+          "result": {
+            "event_id": "SR-WEBEX-REVIEW-001",
+            "outcome": "recorded",
+            "stage": "awaiting_supplier",
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "provider reply",
+          "result": {
+            "message_id": "<webex-approved-2026-001@webex-vendor.example>",
+            "outcome": "recorded",
+            "verdict": "record",
+            "category": "record",
+            "reasons": [],
+            "next_owner": null,
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "replay",
+          "result": [
+            "duplicate_ignored",
+            "duplicate_ignored",
+            "duplicate_ignored",
+            "duplicate_ignored"
+          ]
+        },
+        {
+          "step": "schedule 2026-07-03",
+          "result": {
+            "as_of": "2026-07-03",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": false,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "schedule 2026-07-21",
+          "result": {
+            "as_of": "2026-07-21",
+            "cases": [
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [
+              "AG-RR-WEBEX-2026"
+            ],
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "schedule 2026-07-21 (replayed)",
+          "result": {
+            "as_of": "2026-07-21",
+            "cases": [
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "R-I-02": {
+    "workflow": "renewal",
+    "status": "needs_human",
+    "result": {
+      "summary": {
+        "item_id": "R-I-02",
+        "c001_on_2026_07_01": {
+          "contract_id": "C001",
+          "vendor": "Webex",
+          "urgent": true,
+          "notice_overdue": true,
+          "expired": false,
+          "recommendation": "expand"
+        },
+        "run_stage": "needs_human",
+        "status_reason": "supplier reply not recordable (conditional): supplier decision is 'conditional', not a final approval; supplier conditions outstanding: signed order form; written Finance acceptance by 2026-07-10; reply is missing: confirmation_id; reply text says it is not final: 'not final'",
+        "next_owner": "IT owner + Finance: resolve the supplier's stated conditions; nothing recorded",
+        "stage_history": [
+          "2026-07-01 awaiting_internal_decision (schedule scan opened run)",
+          "2026-07-03 awaiting_clearances (IA-WEBEX-APPROVE-001)",
+          "2026-07-03 awaiting_clearances (FC-WEBEX-CLEAR-001)",
+          "2026-07-03 awaiting_supplier (SR-WEBEX-REVIEW-001)",
+          "2026-07-03 needs_human (<webex-conditional-2026-001@webex-vendor.example>)"
+        ],
+        "agreement": null,
+        "terms_in_effect_2026_07_03": {
+          "seat_limit": 40,
+          "active_seats": 42,
+          "annual_cost": 18400,
+          "renewal_date": "2026-07-20",
+          "start_date": "2025-07-21",
+          "end_date": "2026-07-20"
+        },
+        "terms_in_effect_2026_07_21": {
+          "seat_limit": 40,
+          "active_seats": 42,
+          "annual_cost": 18400,
+          "renewal_date": "2026-07-20",
+          "start_date": "2025-07-21",
+          "end_date": "2026-07-20"
+        },
+        "communications": [
+          {
+            "message_key": "approval-request:RR-WEBEX-2026",
+            "channel": "internal",
+            "recipient": "amir.haddad@novaops.example",
+            "subject": "[RR-WEBEX-2026] Approval needed: Webex renewal (C001)",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-01"
+          },
+          {
+            "message_key": "reply-outcome:<webex-conditional-2026-001@webex-vendor.example>",
+            "channel": "internal",
+            "recipient": "amir.haddad@novaops.example",
+            "subject": "[RR-WEBEX-2026] Supplier reply needs a person: conditional",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-03"
+          },
+          {
+            "message_key": "supplier-request:RR-WEBEX-2026",
+            "channel": "provider_email",
+            "recipient": "renewals@webex-vendor.example",
+            "subject": "NovaOps renewal request for contract C001",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-03"
+          }
+        ],
+        "employee_notifications": [],
+        "supplier_requests_sent": 1,
+        "replay_outcomes": [
+          "duplicate_ignored",
+          "duplicate_ignored",
+          "duplicate_ignored",
+          "duplicate_ignored"
+        ],
+        "audit_rows": [
+          {
+            "event_id": "AUD-FC-WEBEX-CLEAR-001",
+            "event_type": "finance_clearance",
+            "notes": "RR-WEBEX-2026: The expansion adds USD 3,600 a year, below the Q3 USD 7,500 threshold for incremental spend. No Finance hold on this request; AP002 closed."
+          }
+        ],
+        "AP002": {
+          "approval_id": "AP002",
+          "status": "approved"
+        },
+        "AR001": {
+          "request_id": "AR001",
+          "status": "blocked"
+        }
+      },
+      "timeline": [
+        {
+          "step": "schedule 2026-07-01",
+          "result": {
+            "as_of": "2026-07-01",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": false,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [
+              "RR-WEBEX-2026"
+            ],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event IA-WEBEX-APPROVE-001",
+          "result": {
+            "event_id": "IA-WEBEX-APPROVE-001",
+            "outcome": "recorded",
+            "stage": "awaiting_clearances",
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event FC-WEBEX-CLEAR-001",
+          "result": {
+            "event_id": "FC-WEBEX-CLEAR-001",
+            "outcome": "recorded",
+            "stage": "awaiting_clearances",
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event SR-WEBEX-REVIEW-001",
+          "result": {
+            "event_id": "SR-WEBEX-REVIEW-001",
+            "outcome": "recorded",
+            "stage": "awaiting_supplier",
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "provider reply",
+          "result": {
+            "message_id": "<webex-conditional-2026-001@webex-vendor.example>",
+            "outcome": "escalated",
+            "verdict": "escalate",
+            "category": "conditional",
+            "reasons": [
+              "supplier decision is 'conditional', not a final approval",
+              "supplier conditions outstanding: signed order form; written Finance acceptance by 2026-07-10",
+              "reply is missing: confirmation_id",
+              "reply text says it is not final: 'not final'"
+            ],
+            "next_owner": "IT owner + Finance: resolve the supplier's stated conditions; nothing recorded",
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "replay",
+          "result": [
+            "duplicate_ignored",
+            "duplicate_ignored",
+            "duplicate_ignored",
+            "duplicate_ignored"
+          ]
+        },
+        {
+          "step": "schedule 2026-07-03",
+          "result": {
+            "as_of": "2026-07-03",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": false,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "schedule 2026-07-21",
+          "result": {
+            "as_of": "2026-07-21",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": false,
+                "notice_overdue": true,
+                "expired": true,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "schedule 2026-07-21 (replayed)",
+          "result": {
+            "as_of": "2026-07-21",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": false,
+                "notice_overdue": true,
+                "expired": true,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "R-I-03": {
+    "workflow": "renewal",
+    "status": "needs_human",
+    "result": {
+      "summary": {
+        "item_id": "R-I-03",
+        "c001_on_2026_07_01": {
+          "contract_id": "C001",
+          "vendor": "Webex",
+          "urgent": true,
+          "notice_overdue": true,
+          "expired": false,
+          "recommendation": "expand"
+        },
+        "run_stage": "needs_human",
+        "status_reason": "supplier reply not recordable (ambiguous): supplier decision is 'ambiguous', not a final approval; reply is missing: contract_id, confirmation_id, annual_cost_usd, term_start_date, term_end_date; reply text says it is not final: 'will send the final'",
+        "next_owner": "procurement: ask the supplier for final written confirmation and terms",
+        "stage_history": [
+          "2026-07-01 awaiting_internal_decision (schedule scan opened run)",
+          "2026-07-03 awaiting_clearances (IA-WEBEX-APPROVE-001)",
+          "2026-07-03 awaiting_clearances (FC-WEBEX-CLEAR-001)",
+          "2026-07-03 awaiting_supplier (SR-WEBEX-REVIEW-001)",
+          "2026-07-03 needs_human (<webex-ambiguous-2026-001@webex-vendor.example>)"
+        ],
+        "agreement": null,
+        "terms_in_effect_2026_07_03": {
+          "seat_limit": 40,
+          "active_seats": 42,
+          "annual_cost": 18400,
+          "renewal_date": "2026-07-20",
+          "start_date": "2025-07-21",
+          "end_date": "2026-07-20"
+        },
+        "terms_in_effect_2026_07_21": {
+          "seat_limit": 40,
+          "active_seats": 42,
+          "annual_cost": 18400,
+          "renewal_date": "2026-07-20",
+          "start_date": "2025-07-21",
+          "end_date": "2026-07-20"
+        },
+        "communications": [
+          {
+            "message_key": "approval-request:RR-WEBEX-2026",
+            "channel": "internal",
+            "recipient": "amir.haddad@novaops.example",
+            "subject": "[RR-WEBEX-2026] Approval needed: Webex renewal (C001)",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-01"
+          },
+          {
+            "message_key": "reply-outcome:<webex-ambiguous-2026-001@webex-vendor.example>",
+            "channel": "internal",
+            "recipient": "amir.haddad@novaops.example",
+            "subject": "[RR-WEBEX-2026] Supplier reply needs a person: ambiguous",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-03"
+          },
+          {
+            "message_key": "supplier-request:RR-WEBEX-2026",
+            "channel": "provider_email",
+            "recipient": "renewals@webex-vendor.example",
+            "subject": "NovaOps renewal request for contract C001",
+            "delivery_status": "delivered",
+            "created_on": "2026-07-03"
+          }
+        ],
+        "employee_notifications": [],
+        "supplier_requests_sent": 1,
+        "replay_outcomes": [
+          "duplicate_ignored",
+          "duplicate_ignored",
+          "duplicate_ignored",
+          "duplicate_ignored"
+        ],
+        "audit_rows": [
+          {
+            "event_id": "AUD-FC-WEBEX-CLEAR-001",
+            "event_type": "finance_clearance",
+            "notes": "RR-WEBEX-2026: The expansion adds USD 3,600 a year, below the Q3 USD 7,500 threshold for incremental spend. No Finance hold on this request; AP002 closed."
+          }
+        ],
+        "AP002": {
+          "approval_id": "AP002",
+          "status": "approved"
+        },
+        "AR001": {
+          "request_id": "AR001",
+          "status": "blocked"
+        }
+      },
+      "timeline": [
+        {
+          "step": "schedule 2026-07-01",
+          "result": {
+            "as_of": "2026-07-01",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": false,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [
+              "RR-WEBEX-2026"
+            ],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event IA-WEBEX-APPROVE-001",
+          "result": {
+            "event_id": "IA-WEBEX-APPROVE-001",
+            "outcome": "recorded",
+            "stage": "awaiting_clearances",
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event FC-WEBEX-CLEAR-001",
+          "result": {
+            "event_id": "FC-WEBEX-CLEAR-001",
+            "outcome": "recorded",
+            "stage": "awaiting_clearances",
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "event SR-WEBEX-REVIEW-001",
+          "result": {
+            "event_id": "SR-WEBEX-REVIEW-001",
+            "outcome": "recorded",
+            "stage": "awaiting_supplier",
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "provider reply",
+          "result": {
+            "message_id": "<webex-ambiguous-2026-001@webex-vendor.example>",
+            "outcome": "escalated",
+            "verdict": "escalate",
+            "category": "ambiguous",
+            "reasons": [
+              "supplier decision is 'ambiguous', not a final approval",
+              "reply is missing: contract_id, confirmation_id, annual_cost_usd, term_start_date, term_end_date",
+              "reply text says it is not final: 'will send the final'"
+            ],
+            "next_owner": "procurement: ask the supplier for final written confirmation and terms",
+            "delivery": {
+              "delivered": 1,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "replay",
+          "result": [
+            "duplicate_ignored",
+            "duplicate_ignored",
+            "duplicate_ignored",
+            "duplicate_ignored"
+          ]
+        },
+        {
+          "step": "schedule 2026-07-03",
+          "result": {
+            "as_of": "2026-07-03",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": false,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "schedule 2026-07-21",
+          "result": {
+            "as_of": "2026-07-21",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": false,
+                "notice_overdue": true,
+                "expired": true,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        },
+        {
+          "step": "schedule 2026-07-21 (replayed)",
+          "result": {
+            "as_of": "2026-07-21",
+            "cases": [
+              {
+                "contract_id": "C001",
+                "vendor": "Webex",
+                "urgent": false,
+                "notice_overdue": true,
+                "expired": true,
+                "recommendation": "expand"
+              },
+              {
+                "contract_id": "C019",
+                "vendor": "MailGuard",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C002",
+                "vendor": "Salesforce",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C003",
+                "vendor": "Slack",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C007",
+                "vendor": "Okta",
+                "urgent": true,
+                "notice_overdue": true,
+                "expired": false,
+                "recommendation": "renew_as_is"
+              },
+              {
+                "contract_id": "C017",
+                "vendor": "SecureSign",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C020",
+                "vendor": "SupportDesk",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              },
+              {
+                "contract_id": "C018",
+                "vendor": "CloudBackup",
+                "urgent": true,
+                "notice_overdue": false,
+                "expired": false,
+                "recommendation": "escalate"
+              }
+            ],
+            "runs_opened": [],
+            "agreements_applied": [],
+            "delivery": {
+              "delivered": 0,
+              "uncertain": 0,
+              "retry_later": 0
+            }
+          }
+        }
+      ]
+    }
+  }
+}

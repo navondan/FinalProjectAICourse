@@ -1,0 +1,66 @@
+{
+  "set": "EVALUATION-INPUTS.yaml",
+  "run_tag": "20261119T171736",
+  "turns": {
+    "V-I-01": {
+      "item_id": "V-I-01",
+      "workflow": "vendor",
+      "turn": null,
+      "caller_employee_id": null,
+      "session_id": "vendor-V-I-01",
+      "request_id": "V-I-01",
+      "trace_id": "e042c4f395f3dcfb1ff2a6b850712455",
+      "status": "completed"
+    },
+    "V-I-02": {
+      "item_id": "V-I-02",
+      "workflow": "vendor",
+      "turn": null,
+      "caller_employee_id": null,
+      "session_id": "vendor-V-I-02",
+      "request_id": "V-I-02",
+      "trace_id": "d3d6ed12065029ec7faccf97ebefd36a",
+      "status": "completed"
+    },
+    "V-I-03": {
+      "item_id": "V-I-03",
+      "workflow": "vendor",
+      "turn": null,
+      "caller_employee_id": null,
+      "session_id": "vendor-V-I-03",
+      "request_id": "V-I-03",
+      "trace_id": "638b33f67d81b958265fb0dbe623cbe1",
+      "status": "completed"
+    },
+    "R-I-01": {
+      "item_id": "R-I-01",
+      "workflow": "renewal",
+      "turn": null,
+      "caller_employee_id": null,
+      "session_id": "renewal-R-I-01",
+      "request_id": "R-I-01",
+      "trace_id": "a3622de8748f921897eaee0f20c3758c",
+      "status": "applied"
+    },
+    "R-I-02": {
+      "item_id": "R-I-02",
+      "workflow": "renewal",
+      "turn": null,
+      "caller_employee_id": null,
+      "session_id": "renewal-R-I-02",
+      "request_id": "R-I-02",
+      "trace_id": "48fb453fc8ef93ed9b00641305643052",
+      "status": "needs_human"
+    },
+    "R-I-03": {
+      "item_id": "R-I-03",
+      "workflow": "renewal",
+      "turn": null,
+      "caller_employee_id": null,
+      "session_id": "renewal-R-I-03",
+      "request_id": "R-I-03",
+      "trace_id": "9466e868603251e160d22a42d37ebe82",
+      "status": "needs_human"
+    }
+  }
+}

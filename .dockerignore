@@ -1,0 +1,14 @@
+.git
+.idea
+.vscode
+.venv
+.env
+.env.*
+!.env.example
+.pytest_cache
+**/__pycache__
+*.egg-info
+data
+eval-runs
+docs
+tests

@@ -71,16 +71,18 @@ def test_golden_plan_maps_callers_and_run_keys_to_the_scorer_format() -> None:
     assert items["SIMPLE_001"].turns[0].run_key == "SIMPLE_001"
 
 
-def test_evaluation_plan_runs_the_27_required_turns_and_reports_skips() -> None:
+def test_evaluation_plan_runs_the_27_required_turns_plus_optional_workflows() -> None:
     plan = load_plan(PROJECT_ROOT / "EVALUATION-INPUTS.yaml")
 
     turns = [turn.run_key for item in plan.items for turn in item.turns]
     assert len(turns) == 27
     assert {item.workflow for item in plan.items} == {"maya", "webex"}
     assert "M-I-01" in turns and "M-S-01:12" in turns and "W-S-01:4" in turns
-    assert sorted(skip["item_id"] for skip in plan.skipped) == [
-        "R-I-01", "R-I-02", "R-I-03", "V-I-01", "V-I-02", "V-I-03",
-    ]
+    assert not plan.skipped
+    workflow_items = {item.item_id: item for item in plan.workflow_items}
+    assert sorted(workflow_items) == ["R-I-01", "R-I-02", "R-I-03", "V-I-01", "V-I-02", "V-I-03"]
+    assert "document" in workflow_items["V-I-01"].payload
+    assert len(workflow_items["R-I-01"].payload["internal_events"]) == 3
 
 
 def test_each_item_gets_a_fresh_seeded_database_and_sessions_share_one_thread(
@@ -238,3 +240,27 @@ def test_real_agent_session_carries_history_and_produces_a_scorable_run_file(
     report = evaluate_records(golden, runs)
     assert "S1-quick-policy:1" not in report["missing_cases"]
     assert "SIMPLE_001" not in report["missing_cases"]
+
+def test_workflow_items_run_vendor_and_renewal_with_one_record_each(tmp_path: Path) -> None:
+    from novaops.evals.harness import run_workflow_items
+    from novaops.workflows.renewal.model import RulesRecommender
+    from tests.test_renewal import FakeExtractor
+    from tests.test_vendor import PROPOSALS, FakeConverse
+
+    settings = _settings(tmp_path)
+    plan = load_plan(PROJECT_ROOT / "EVALUATION-INPUTS.yaml")
+    items = [item for item in plan.workflow_items if item.item_id in {"V-I-01", "R-I-02"}]
+
+    runs, index = run_workflow_items(
+        items,
+        settings,
+        work_dir=tmp_path / "wf",
+        client=FakeConverse(PROPOSALS["formal_vendor_intake"]),
+        renewal_options={"recommender": RulesRecommender(), "extractor": FakeExtractor()},
+    )
+
+    assert set(runs) == {"V-I-01", "R-I-02"}
+    assert runs["V-I-01"]["status"] == "completed"
+    assert runs["R-I-02"]["status"] == "needs_human"
+    assert runs["R-I-02"]["result"]["summary"]["terms_in_effect_2026_07_21"]["seat_limit"] == 40
+    assert index["R-I-02"]["session_id"] == "renewal-R-I-02"

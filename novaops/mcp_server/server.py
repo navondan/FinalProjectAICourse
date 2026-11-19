@@ -156,4 +156,11 @@ def create_server(
             priority=priority,
         )
 
+    @server.custom_route("/health", methods=["GET"])
+    async def health(request):  # noqa: ARG001 - Starlette passes the request
+        """Liveness for the container HEALTHCHECK: process only, no model or embedding call."""
+        from starlette.responses import JSONResponse
+
+        return JSONResponse({"status": "ok", "service": "novaops-mcp"})
+
     return server

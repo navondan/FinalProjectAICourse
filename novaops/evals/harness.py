@@ -48,9 +48,22 @@ class HarnessItem:
 
 
 @dataclass(slots=True)
+class WorkflowItem:
+    """A caller-less optional workflow input (vendor document or renewal provider reply)."""
+
+    item_id: str
+    workflow: str
+    payload: dict[str, Any]
+
+
+@dataclass(slots=True)
 class HarnessPlan:
     items: list[HarnessItem] = field(default_factory=list)
     skipped: list[dict[str, str]] = field(default_factory=list)
+    workflow_items: list[WorkflowItem] = field(default_factory=list)
+
+
+WORKFLOW_RUNNERS = ("vendor", "renewal")
 
 
 ExecutorFactory = Callable[[Settings, str], ToolExecutor]
@@ -113,6 +126,12 @@ def _plan_from_evaluation(data: dict[str, Any]) -> HarnessPlan:
         for item in workflow.get("inputs", []):
             item_id = _required(item, "id")
             caller = (item.get("caller") or {}).get("employee_id")
+            if not caller and workflow_id in WORKFLOW_RUNNERS:
+                payload = dict(item)
+                if workflow_id == "renewal":
+                    payload["internal_events"] = workflow.get("internal_events", [])
+                plan.workflow_items.append(WorkflowItem(item_id, workflow_id, payload))
+                continue
             if not caller:
                 plan.skipped.append(
                     {
@@ -283,6 +302,65 @@ async def _run_turn(
     return _json_safe(record), last_trace_id()
 
 
+def run_workflow_items(
+    items: list[WorkflowItem],
+    settings: Settings,
+    *,
+    work_dir: Path,
+    client: Any | None = None,
+    renewal_options: dict[str, Any] | None = None,
+    progress: Callable[[str], None] = lambda message: None,
+) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
+    """Run vendor/renewal inputs: one trace per input, each renewal on its own fresh database."""
+    from novaops.workflows.renewal.service import run_renewal_evaluation
+    from novaops.workflows.vendor.service import run_vendor_extraction
+
+    runs: dict[str, dict[str, Any]] = {}
+    trace_index: dict[str, dict[str, Any]] = {}
+    for index, item in enumerate(items, start=1):
+        progress(f"[workflow {index}/{len(items)}] {item.item_id}")
+        clear_last_trace_id()
+        session_id = f"{item.workflow}-{item.item_id}"
+        try:
+            if item.workflow == "vendor":
+                result = run_vendor_extraction(
+                    settings,
+                    item.payload["document"],
+                    source_id=item.item_id,
+                    source_name=item.payload.get("source_name"),
+                    client=client,
+                    session_id=session_id,
+                )
+                status = "completed"
+            else:
+                work_dir.mkdir(parents=True, exist_ok=True)
+                result = run_renewal_evaluation(
+                    settings,
+                    item_id=item.item_id,
+                    provider_reply=item.payload["provider_reply"],
+                    internal_events=item.payload["internal_events"],
+                    database_path=work_dir / f"{_safe_name(item.item_id)}.sqlite3",
+                    client=client,
+                    **(renewal_options or {}),
+                )
+                status = result["summary"]["run_stage"] or "no_run"
+            record = {"workflow": item.workflow, "status": status, "result": _json_safe(result)}
+        except Exception as exc:  # recorded, never dropped
+            record = {"workflow": item.workflow, "status": "failed", "error": f"{type(exc).__name__}: {exc}"}
+        runs[item.item_id] = record
+        trace_index[item.item_id] = {
+            "item_id": item.item_id,
+            "workflow": item.workflow,
+            "turn": None,
+            "caller_employee_id": None,
+            "session_id": session_id,
+            "request_id": item.item_id,
+            "trace_id": last_trace_id(),
+            "status": record["status"],
+        }
+    return runs, trace_index
+
+
 def _json_safe(value: Any) -> Any:
     return json.loads(json.dumps(value, ensure_ascii=False, default=str))
 
@@ -298,7 +376,7 @@ def summarize(
     for record in runs.values():
         statuses[record["status"]] = statuses.get(record["status"], 0) + 1
     return {
-        "items": len(plan.items),
+        "items": len(plan.items) + len(plan.workflow_items),
         "turns": len(runs),
         "statuses": statuses,
         "skipped": plan.skipped,

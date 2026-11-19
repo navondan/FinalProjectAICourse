@@ -30,6 +30,7 @@ LOADOUTS: dict[str, dict[str, tuple[str, ...]]] = {
             "search_knowledge_base",
         ),
         "ticket_status": ("list_employee_tickets",),
+        "conversation_recall": (),
         "other": ("search_knowledge_base",),
     },
     "webex": {
@@ -56,6 +57,7 @@ LOADOUTS: dict[str, dict[str, tuple[str, ...]]] = {
             "get_policy",
         ),
         "ticket_status": ("list_employee_tickets",),
+        "conversation_recall": (),
         "other": ("search_knowledge_base",),
     },
 }

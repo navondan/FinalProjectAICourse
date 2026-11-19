@@ -28,13 +28,13 @@ and it is how every trace gets found.
 | --------------------------- | ------ | ----- |
 | 1 — Maya · HR and onboarding | required | yes — `novaops/workflows/maya/`, `docs/walkthrough/M4-maya.md` |
 | 2 — Webex · IT operations    | required | yes — `novaops/workflows/webex/`, `docs/walkthrough/M5-webex.md` |
-| 3 — Vendor · CRM extraction  | no | not attempted |
-| 4 — Renewal · contract renewal | no | not attempted |
+| 3 — Vendor · CRM extraction  | yes | `novaops/workflows/vendor/`, `tests/test_vendor.py`; run file `eval-runs/runs-evaluation-optional.json` |
+| 4 — Renewal · contract renewal | yes | `novaops/workflows/renewal/` (explicit SQLite state machine), `tests/test_renewal.py`; same run file |
 
 | Optional stage | Done | Evidence |
 | ------------------------------- | -------- | -------- |
-| Lesson 12 — loop engineering     | no | Offline scorer with golden before/after in `eval-runs/` (0.323 → 0.686); not a full loop |
-| Lesson 14 — packaging and deploy | no | |
+| Lesson 12 — loop engineering     | yes | `novaops/evals/targets.py` (gate: distance, non-tradeable floors, noise floor), `novaops/evals/loop.py` (journal, budgets, human review), `eval-runs/loop-journal.json`, `eval-runs/loop-report.md` |
+| Lesson 14 — packaging and deploy | yes | `novaops/api/app.py` (`/health`, `/ready`, `/chat`, `/approvals`), MCP `/health`, `novaops/workflows/renewal/worker.py`, `Dockerfile` (mcp/api/renewal-worker, non-root), `compose.yaml`, `scripts/build-images.*` (SHA tags), `tests/test_packaging.py`. Images not built locally (no Docker on the dev machine) |
 
 ## 4. Durable-behavior evidence
 
@@ -46,7 +46,7 @@ that proves each — one line, or "not attempted".
 | Replaying a request creates no second ticket or access request | `tests/test_database.py::test_access_and_ticket_writes_are_idempotent`; replay step of `tests/test_webex.py::test_webex_idempotent_restart_resume_after_approval` |
 | A pending approval survives the process being killed and restarted | `tests/test_webex.py::test_webex_idempotent_restart_resume_after_approval` — interrupt persisted in the SQLite checkpointer, resumed by a fresh graph and connection, same `workflow_request_id` |
 | The write gate releases only against a recorded approval | `tests/test_write_gate.py`; `tests/test_mcp_tools.py::test_access_request_tool_requires_persisted_exact_scope_approval`; `tests/test_webex.py::test_unauthorized_cli_approver_cannot_release_an_interrupted_write` |
-| *Renewal (optional): every event replayed twice leaves one update and one notification per recipient* | not attempted |
+| *Renewal (optional): every event replayed twice leaves one update and one notification per recipient* | `tests/test_renewal.py::test_effective_date_and_replay`, `::test_restart_between_processes_resumes_from_sqlite`, `::test_evaluation_sequence_end_to_end`; live in traces R-I-01..03 (each replays every event and reply, then a fresh process reruns 07-21) |
 
 ## 5. Trace index
 
@@ -96,17 +96,17 @@ blank if you did not run it.
 
 | Item | Turn | Trace ID |
 | ---- | ---- | -------- |
-| `V-I-01` | — | |
-| `V-I-02` | — | |
-| `V-I-03` | — | |
+| `V-I-01` | — | `e042c4f395f3dcfb1ff2a6b850712455` |
+| `V-I-02` | — | `d3d6ed12065029ec7faccf97ebefd36a` |
+| `V-I-03` | — | `638b33f67d81b958265fb0dbe623cbe1` |
 
 ### Renewal - contract renewal  *(optional)*
 
 | Item | Turn | Trace ID |
 | ---- | ---- | -------- |
-| `R-I-01` | — | |
-| `R-I-02` | — | |
-| `R-I-03` | — | |
+| `R-I-01` | — | `a3622de8748f921897eaee0f20c3758c` |
+| `R-I-02` | — | `48fb453fc8ef93ed9b00641305643052` |
+| `R-I-03` | — | `9466e868603251e160d22a42d37ebe82` |
 
 ---
 
@@ -122,3 +122,14 @@ share one database and thread); outputs are in `eval-runs/runs-evaluation.json` 
 "rrachel stein" was passed through unresolved, so the agent refused (`blocked`, no write) rather
 than guess a person — safe, but not the intended answer. Webex requests for Rachel are otherwise
 blocked on recorded evidence (42/40 seats, AR001 blocked), a deliberate M5 decision.
+
+The six optional items ran afterwards through the same `run-set` command (`--only V-I-01 …
+R-I-03`), into `eval-runs/runs-evaluation-optional.json` and
+`eval-runs/trace-index-evaluation-optional.json`. Results: V-I-01 complete; V-I-02 missing
+`payment_terms`; V-I-03 missing `legal_name` and `security_review_required` (reported, never
+invented). R-I-01 applied 50 seats on 2026-07-21 with one notice; R-I-02 (conditional) and
+R-I-03 (ambiguous) went to a human with seats unchanged at 40. The optional work, including
+the eval-loop change (a no-tool `conversation_recall` intent), came after the commit reviewed
+for the required items; the required traces were not rerun. Renewal uses an explicit SQLite
+state machine rather than a durable-workflow engine, and packaging calls Bedrock directly
+(no LiteLLM gateway).

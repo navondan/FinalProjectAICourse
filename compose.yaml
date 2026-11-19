@@ -1,0 +1,83 @@
+# NovaOps Company Brain: three services from one Dockerfile.
+#
+#   api :8000 ──▶ mcp :9876 (database + FAISS index + embeddings)
+#   renewal-worker  (schedule + inbox; no port)
+#
+# Images are tagged with the commit SHA, never only `latest`:
+#   GIT_SHA=$(git rev-parse --short HEAD) docker compose build     # or scripts/build-images.*
+# Before the first `up`, build the index once on the host: python -m novaops.cli ingest
+# (./data is mounted into every service, so they share the database and the index).
+
+name: novaops
+
+x-common: &common
+  env_file:
+    - path: .env
+      required: false
+  environment:
+    NOVAOPS_DATA_DIR: /app/novaops-enterprise-agent-dataset
+    NOVAOPS_DATABASE_PATH: /app/data/novaops.sqlite3
+    NOVAOPS_CHECKPOINT_PATH: /app/data/checkpoints.sqlite3
+    NOVAOPS_INDEX_PATH: /app/data/index
+  volumes:
+    - ./data:/app/data
+  # Langfuse batches exports; 30 s lets in-flight turns finish and flush their traces.
+  stop_grace_period: 30s
+
+services:
+  mcp:
+    <<: *common
+    image: novaops/mcp:${GIT_SHA:?set GIT_SHA to the commit being built}
+    build:
+      context: .
+      target: mcp
+      args:
+        GIT_SHA: ${GIT_SHA}
+    ports:
+      - "9876:9876"
+
+  api:
+    <<: *common
+    image: novaops/api:${GIT_SHA:?set GIT_SHA to the commit being built}
+    build:
+      context: .
+      target: api
+      args:
+        GIT_SHA: ${GIT_SHA}
+    environment:
+      NOVAOPS_DATA_DIR: /app/novaops-enterprise-agent-dataset
+      NOVAOPS_DATABASE_PATH: /app/data/novaops.sqlite3
+      NOVAOPS_CHECKPOINT_PATH: /app/data/checkpoints.sqlite3
+      NOVAOPS_INDEX_PATH: /app/data/index
+      # Service DNS on the compose network, not localhost.
+      NOVAOPS_MCP_URL: http://mcp:9876/mcp
+      MAX_CONCURRENCY: "2"
+      REQUEST_TIMEOUT_SECONDS: "120"
+    ports:
+      - "8000:8000"
+    depends_on:
+      mcp:
+        condition: service_healthy
+    # Overrides the image's liveness check: at the compose level, "healthy" should mean
+    # "ready for traffic" (database, index, MCP), still without a model call.
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=4)"]
+      interval: 15s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
+
+  renewal-worker:
+    <<: *common
+    image: novaops/renewal-worker:${GIT_SHA:?set GIT_SHA to the commit being built}
+    build:
+      context: .
+      target: renewal-worker
+      args:
+        GIT_SHA: ${GIT_SHA}
+    environment:
+      NOVAOPS_DATA_DIR: /app/novaops-enterprise-agent-dataset
+      NOVAOPS_INDEX_PATH: /app/data/index
+      # Optional: pin the business date for a demo (e.g. 2026-07-01); unset = today.
+      NOVAOPS_RENEWAL_AS_OF: ${NOVAOPS_RENEWAL_AS_OF:-}
+    command: ["python", "-m", "novaops.workflows.renewal.worker", "--db", "/app/data/renewal.sqlite3", "--inbox", "/app/data/renewal-inbox"]

@@ -159,25 +159,40 @@ def _run_set(
         in_process_executor_factory,
         load_plan,
         run_plan,
+        run_workflow_items,
         summarize,
     )
 
     plan = load_plan(set_path)
     if only:
-        unknown = set(only) - {item.item_id for item in plan.items}
+        known = {item.item_id for item in plan.items} | {item.item_id for item in plan.workflow_items}
+        unknown = set(only) - known
         if unknown:
             raise ValueError(f"Unknown item ids for --only: {sorted(unknown)}")
         plan.items = [item for item in plan.items if item.item_id in only]
+        plan.workflow_items = [item for item in plan.workflow_items if item.item_id in only]
     run_tag = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
-    runs, trace_index = asyncio.run(
-        run_plan(
-            plan,
+    runs: dict = {}
+    trace_index: dict = {}
+    if plan.items:
+        runs, trace_index = asyncio.run(
+            run_plan(
+                plan,
+                settings,
+                executor_factory=in_process_executor_factory(settings),
+                run_tag=run_tag,
+                progress=lambda message: print(message, flush=True),
+            )
+        )
+    if plan.workflow_items:
+        workflow_runs, workflow_index = run_workflow_items(
+            plan.workflow_items,
             settings,
-            executor_factory=in_process_executor_factory(settings),
-            run_tag=run_tag,
+            work_dir=settings.database_path.parent / "eval-workflows" / run_tag,
             progress=lambda message: print(message, flush=True),
         )
-    )
+        runs.update(workflow_runs)
+        trace_index.update(workflow_index)
     output.write_text(
         json.dumps(runs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )

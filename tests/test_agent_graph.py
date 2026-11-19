@@ -654,3 +654,38 @@ def test_mislabeled_classifier_scope_and_intent_fall_back_instead_of_failing(
         "completed",
     )
     assert not {"create_access_request", "create_ticket"} & set(result["selected_tools"])
+
+
+def test_conversation_recall_answers_from_history_without_tools(tmp_path: Path) -> None:
+    async def run() -> dict[str, Any]:
+        tool_executor = FakeToolExecutor()
+        model = FakeModel(
+            [
+                _classification(scope="maya", intent="conversation_recall"),
+                "You said Maya starts on 2026-08-01 in Israel [conversation:turn-1].",
+            ]
+        )
+        async with open_checkpointer(tmp_path / "checkpoints.sqlite3") as checkpointer:
+            graph = build_agent_graph(
+                model=model,
+                tool_executor=tool_executor,
+                approval_store=ApprovalStore(tmp_path / "approvals.sqlite3"),
+                checkpointer=checkpointer,
+            )
+            result = await graph.ainvoke(
+                {
+                    "message": "Remind me which location and start date I gave you.",
+                    "caller_employee_id": "E004",
+                    "caller_group": "HR Group",
+                    "thread_id": "recall-1",
+                },
+                config={"configurable": {"thread_id": "recall-1"}},
+            )
+        assert tool_executor.calls == []
+        return result
+
+    result = asyncio.run(run())
+    assert result["intent"] == "conversation_recall"
+    assert result["selected_tools"] == []
+    assert result["tool_history"] == []
+    assert "2026-08-01" in result["answer"]

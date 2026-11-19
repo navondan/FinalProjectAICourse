@@ -14,7 +14,7 @@ it** without reading every line of code.
 Everything below it is the original plan, kept for its reasoning, with *As built* notes where
 reality diverged.
 
-**Last updated:** 2026-11-19 · **Tests:** 88 passing (`.\.venv\Scripts\python -m pytest`) ·
+**Last updated:** 2026-11-19 · **Tests:** 137 passing (`.\.venv\Scripts\python -m pytest`) ·
 **Repository:** https://github.com/navondan/FinalProjectAICourse (`main`, pushed 2026-11-19) · **Deadline:** none fixed — order by marks per
 effort, required path first.
 
@@ -28,14 +28,14 @@ effort, required path first.
 | M5 | Webex | ✅ done | `M5-webex.md`; `tests/test_webex.py`, `test_database.py` |
 | M6 | Observability ⭐ | ✅ done | `M6-observability.md`; live S9 trace, session `m6-s9-20261119b` |
 | M6.5 | Evaluation run harness ⭐ | ✅ done | `M6.5-harness.md`; `cli run-set`; golden 79 turns: baseline 0.323 (67 failed) → 0.686 (0 failed), `eval-runs/` |
-| M7 | Vendor *(+5)* | ⬜ not started | `novaops/workflows/vendor/` is an empty package |
-| M8 | Renewal *(+10)* | ⬜ not started | `novaops/workflows/renewal/` is an empty package |
-| M9 | Eval loop | ⬜ not started | — |
-| M10 | Packaging *(+5)* | ⬜ not started | — |
+| M7 | Vendor *(+5)* | ✅ done | `novaops/workflows/vendor/`; `tests/test_vendor.py`; V-I-01..03 traced (`eval-runs/*-evaluation-optional.json`) |
+| M8 | Renewal *(+10)* | ✅ done | `novaops/workflows/renewal/`; `tests/test_renewal.py`; R-I-01..03 traced (same files) |
+| M9 | Eval loop | ✅ done | `novaops/evals/targets.py`, `loop.py`; `tests/test_eval_loop.py`; `eval-runs/loop-journal.json`, `loop-report.md` |
+| M10 | Packaging *(+5)* | ✅ done | `novaops/api/`, `Dockerfile`, `compose.yaml`, `scripts/build-images.*`; `tests/test_packaging.py`; images not built (no local Docker) |
 | **M11** | **Submission ⭐** | 🟡 **almost** | Evaluation run `20261119T164501` (27/27 traced, 0 failed) in `eval-runs/`; `SUBMISSION.md` filled |
 
 **Next action:** M11 — invite the instructor to Langfuse (Member), then set "Invitation
-accepted" in `SUBMISSION.md`. README check. Optional after that: M7/M8.
+accepted" in `SUBMISSION.md`. All optional milestones are done.
 
 **Known golden gaps (by design, not bugs):** S6/S7/S8 turn 4 expect the Webex request to be
 filed, but the M5 decision blocks it on recorded evidence (42/40 seats, AR001 blocked).
@@ -64,6 +64,10 @@ match a document path.
 | Maya citation violation fails the turn (M4) | Citation contract + one retry + cited fallback answer | Nova Lite wrote uncited markdown; 100% of policy turns failed |
 | Any tool / plan / checklist error fails the turn | Read-tool errors returned to the model with one re-plan; plan and checklist retried once; checklist DB fallback; unresolvable target → `blocked` | Baseline: 67/79 golden turns failed on recoverable errors |
 | Scorer compares sources by equality (M6) | Path-suffix match | Golden sources are suffixes (`equipment_policy.md`) |
+| Renewal on a durable-workflow engine (M8) | Explicit SQLite state machine; every event/reply recorded once by ID; outbox with retry | No engine dependency; replay and restart are proven by tests and by the R-I traces |
+| L12 loop reads Langfuse and branches builds (M9) | Loop fed by local `run-set` files; builds identified by git SHA; human `review` promotes | v1 trace API removed; git already snapshots builds |
+| LiteLLM gateway container (M10) | Not built; services call Bedrock directly | Plan marked it DECIDE; one model provider, no routing need |
+| Build and run the images (M10) | Dockerfile/compose written and unit-checked; health endpoints checked live outside containers | Docker not installed on the dev machine |
 
 ### Risks
 
