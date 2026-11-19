@@ -1,0 +1,3642 @@
+{
+  "score": 0.32326283987915405,
+  "passed": 107,
+  "scored": 331,
+  "missing_cases": [],
+  "cases": [
+    {
+      "case_id": "S1-quick-policy:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['five|5']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_policy']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S1-quick-policy:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['approve|approval|log']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S1-quick-policy:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['IT']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S1-quick-policy:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['five|5', 'laptop']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E001']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_employee']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Webex', 'Salesforce']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_hr_documents']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['blocked']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_onboarding_tasks']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['T001|open']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_employee_tickets']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['A005|MacBook']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_asset_inventory']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:6",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['monitor', 'headset']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_policy']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:7",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Israel', '2026-08-01|August 1|Aug 1|1 August']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:8",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['42|over|exceed']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:9",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['7,500|7500']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_hr_documents']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:10",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['pending']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:11",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Okta']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_onboarding_tasks']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:12",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Maya', 'Webex', '2026-08-01|August 1|Aug 1|1 August']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['T001']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_employee_tickets']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E015']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_employee']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['T004|waiting']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:6",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['manager', 'IT']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_policy|search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:7",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['MDM|MFA|end date|named']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_hr_documents']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:8",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:9",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Alex', 'manager|IT']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['7,500|7500']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['18,400|18400', '42']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['7,200|7200']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['9,600|9600']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Webex', 'Figma', 'Miro']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:6",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['33,000|33000']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:7",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['explicit|say so|until I|permission']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:8",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['AR0|pending|filed']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['create_access_request']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:9",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Webex', 'Miro', 'Figma', 'ZoomInfo']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['MFA|authenticator|Okta']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['VPN']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['password']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['IT|helpdesk|support']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['device|phone|enroll|re-enroll']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:6",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['which|clarify|mean|specify|not sure']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:7",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['five|5']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_policy|search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:8",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Daniel', 'MFA|authenticator|Okta']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S6-boundary-clean:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['MFA', 'device|trust']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S6-boundary-clean:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E010']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_employee']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S6-boundary-clean:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Rachel', 'Webex']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S6-boundary-clean:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['AR0|pending|filed']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['create_access_request']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S7-boundary-noisy:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['MFA', 'device|trust']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S7-boundary-noisy:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E010']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_employee']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S7-boundary-noisy:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Rachel', 'Webex']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S7-boundary-noisy:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['AR0|pending|filed']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['create_access_request']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S8-boundary-heavy-noise:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['MFA', 'device|trust']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S8-boundary-heavy-noise:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E010']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['get_employee']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S8-boundary-heavy-noise:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Rachel', 'Webex']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S8-boundary-heavy-noise:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['AR0|pending|filed']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['create_access_request']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['six months|6 months', 'April 1|October 1']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_hr_documents']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['making-a-career.md', 'titles-for-support.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['equipment responsibility|equipment form', 'BambooHR']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Webex', 'blocked|seat limit|40']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['manager|not available|cannot']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['2026-07-26|July 26|planned', 'laptop|MacBook']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_onboarding_tasks']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_001",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['equipment_policy.md', 'acceptable_use_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_002",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['mfa_reset.md', 'okta_device_change.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_003",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['salesforce_access_request.md', 'access_management_policy.md', 'new_salesforce_access_rules.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_004",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['webex_vendor_agreement.md', 'webex_login_issue.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_005",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['contracts', 'software_subscriptions']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_006",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['github_access_for_contractors.md', 'security_and_mfa_policy.md', 'github_enterprise_license.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_007",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['maya_cohen_offer_letter.md', 'equipment_policy.md', 'remote_equipment_budget_update.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_008",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['onboarding_tasks', 'maya_cohen_onboarding_summary.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_009",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['webex_login_issue.md', 'it_support_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_010",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['data_access_policy.md', 'bamboohr_hris_agreement.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_011",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['contracts']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_012",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['webex_license_assignment.md', 'webex_license_cleanup_memo.md', 'webex_vendor_agreement.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_013",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['access_management_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_014",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['figma_design_license.md', 'access_management_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_015",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['equipment_policy.md', 'remote_equipment_budget_update.md', 'laptop_provisioning.md', 'equipment_responsibility_form.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_016",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['access_management_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_017",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['email_security_alert.md', 'it_support_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['list_employee_tickets']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_018",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['miro_collaboration_agreement.md', 'securesign_esignature_agreement.md', 'contract_renewal_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_019",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['ben_walker_preboarding_summary.md', 'onboarding_policy.md', 'salesforce_access_request.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_020",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['data_access_policy.md', 'bamboohr_hris_agreement.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Unknown or missing terminal status: 'failed'."
+        }
+      ]
+    }
+  ]
+}

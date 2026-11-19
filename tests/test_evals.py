@@ -46,6 +46,32 @@ def test_evaluate_turn_checks_binding_expectations_and_reasonable_tool_mapping()
     assert "search_knowledge_base" in ALWAYS_REASONABLE
 
 
+def test_golden_sources_match_as_path_suffixes() -> None:
+    result = {
+        "answer": "ok",
+        "status": "completed",
+        "evidence": [
+            {"source": "documents/policies/equipment_policy.md"},
+            {"source": "documents/manager_playbook/promotion.md"},
+        ],
+    }
+
+    checks = {
+        check.name: check
+        for check in evaluate_turn(
+            {
+                "expected_sources": ["equipment_policy.md"],
+                "forbidden_sources": ["manager_playbook/promotion.md"],
+            },
+            result,
+        )
+    }
+
+    assert checks["expected_sources"].passed is True
+    assert checks["forbidden_sources"].passed is False  # a leak is now caught
+    assert evaluate_turn({"expected_sources": ["policy.md"]}, result)[4].passed is False
+
+
 def test_expected_tools_allow_only_known_read_only_architecture_equivalents() -> None:
     result = {
         "answer": "The policy says five days.",

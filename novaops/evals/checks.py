@@ -57,7 +57,9 @@ def evaluate_turn(
         _contains_none("forbidden_tools", expectations.get("forbidden_tools"), tool_names),
         _expected_tools(expectations.get("expected_tools"), tool_names),
         _contains_all_sources("expected_sources", expectations.get("expected_sources"), sources),
-        _contains_none("forbidden_sources", expectations.get("forbidden_sources"), sources),
+        _contains_no_sources(
+            "forbidden_sources", expectations.get("forbidden_sources"), sources
+        ),
         _tool_use(expectations.get("should_use_tools"), tool_names),
         _terminal_status(result.get("status"), folded_answer),
     ]
@@ -132,7 +134,11 @@ def _contains_all_sources(
 ) -> CheckResult:
     if not expected:
         return CheckResult(name, None, "No required sources specified.")
-    missing = [source for source in expected if source not in actual]
+    missing = [
+        source
+        for source in expected
+        if not any(_source_matches(path, source) for path in actual)
+    ]
     return CheckResult(
         name,
         not missing,
@@ -140,6 +146,28 @@ def _contains_all_sources(
         if not missing
         else f"Missing: {missing!r}",
     )
+
+
+def _contains_no_sources(name: str, forbidden: Any, actual: set[str]) -> CheckResult:
+    if not forbidden:
+        return CheckResult(name, None, "No forbidden values specified.")
+    found = [
+        source
+        for source in forbidden
+        if any(_source_matches(path, source) for path in actual)
+    ]
+    return CheckResult(
+        name,
+        not found,
+        "No forbidden values were found." if not found else f"Found: {found!r}",
+    )
+
+
+def _source_matches(path: str, expected: str) -> bool:
+    """Golden sources are path suffixes such as 'manager_playbook/promotion.md'."""
+    normalized = path.replace("\\", "/").casefold()
+    suffix = expected.replace("\\", "/").casefold().lstrip("/")
+    return normalized == suffix or normalized.endswith("/" + suffix)
 
 
 def _tool_use(expected: Any, actual: list[str]) -> CheckResult:

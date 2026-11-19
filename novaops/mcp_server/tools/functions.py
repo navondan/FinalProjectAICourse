@@ -27,6 +27,7 @@ class NovaOpsTools:
         self.approval_store = approval_store
 
     def get_employee(self, employee_id: str, caller_employee_id: str) -> dict[str, Any]:
+        employee_id = self._resolve_employee_id(employee_id)
         self._require_employee_access(caller_employee_id, employee_id)
         employee = self.database.get_employee(employee_id)
         if employee is None:
@@ -41,9 +42,9 @@ class NovaOpsTools:
             FROM software_subscriptions AS sub
             JOIN systems AS s ON s.system_id = sub.system_id
             JOIN departments AS d ON d.department_id = sub.owner_department_id
-            WHERE s.system_name = ?
+            WHERE s.system_name = ? COLLATE NOCASE
             """,
-            (system_name,),
+            (system_name.strip(),),
         )
         if subscription is None:
             raise ValueError(f"No subscription found for system: {system_name}")
@@ -157,7 +158,13 @@ class NovaOpsTools:
             if policy_name in {path.stem, path.name}
         ]
         if not matches:
-            raise ValueError(f"Unknown policy: {policy_name}")
+            available = sorted(
+                path.stem
+                for path in (self.data_dir / "documents" / "policies").glob("*.md")
+            )
+            raise ValueError(
+                f"Unknown policy: {policy_name}. Available policies: {', '.join(available)}"
+            )
         path = matches[0]
         return {
             "name": path.stem,
@@ -235,6 +242,23 @@ class NovaOpsTools:
             priority=priority,
             idempotency_key=idempotency_key,
         )
+
+    def _resolve_employee_id(self, identifier: str) -> str:
+        """Accept an employee ID, email, or exact full name; return the employee ID.
+
+        Unresolved identifiers are returned unchanged so the access check answers with
+        the same generic refusal and cannot be used to probe who exists.
+        """
+        row = self.database.fetch_one(
+            """
+            SELECT employee_id FROM employees
+            WHERE employee_id = ? COLLATE NOCASE
+               OR email = ? COLLATE NOCASE
+               OR full_name = ? COLLATE NOCASE
+            """,
+            (identifier.strip(),) * 3,
+        )
+        return row["employee_id"] if row else identifier
 
     def _require_employee_access(self, caller_id: str, subject_id: str) -> None:
         if not self.database.employee_can_view(caller_id, subject_id):

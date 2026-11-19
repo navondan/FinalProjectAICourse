@@ -7,7 +7,11 @@ import pytest
 
 from novaops.agent.graph import build_agent_graph, open_checkpointer
 from novaops.agent.write_gate import ApprovalStore
-from novaops.workflows.maya.checklist import generate_onboarding_checklist
+from novaops.workflows.maya.checklist import (
+    _evidence_sources,
+    generate_onboarding_checklist,
+    render_checklist,
+)
 from novaops.workflows.maya.handoff import prepare_webex_handoff
 
 
@@ -258,21 +262,32 @@ def test_maya_onboarding_no_writes_and_checklist_is_cited(tmp_path: Path) -> Non
 
 
 def test_maya_checklist_rejects_an_unsupported_blocked_reason() -> None:
-    model = FakeModel(
-        [
-            _checklist_output(blocked_reason="Webex access is approved and ready.")
-        ]
+    bad = _checklist_output(blocked_reason="Webex access is approved and ready.")
+    model = FakeModel([bad, bad])
+
+    checklist = generate_onboarding_checklist(
+        model,
+        employee=EMPLOYEE,
+        tasks=TASKS,
+        assets=ASSETS,
+        subscription=SUBSCRIPTION,
+        policy=POLICY,
     )
 
-    with pytest.raises(ValueError, match="does not match its evidence"):
-        generate_onboarding_checklist(
-            model,
-            employee=EMPLOYEE,
-            tasks=TASKS,
-            assets=ASSETS,
-            subscription=SUBSCRIPTION,
-            policy=POLICY,
-        )
+    assert "does not match its evidence" not in render_checklist(checklist)
+    sources = _evidence_sources(EMPLOYEE, TASKS, ASSETS, SUBSCRIPTION, POLICY)
+    citations = [
+        citation
+        for entry in (*checklist.tasks, *checklist.blocked_items)
+        for citation in entry.evidence
+    ]
+    assert all(c.quote in sources[c.source] for c in citations)
+    reasons = [item.reason for item in checklist.blocked_items]
+    assert reasons and all("approved" not in reason for reason in reasons)
+    assert any("active seats exceed" in reason for reason in reasons)
+    rendered = render_checklist(checklist)
+    assert "[database:check_software_subscription#Webex]" in rendered
+    assert [task.task_id for task in checklist.tasks] == [row["task_id"] for row in TASKS]
 
 
 def test_webex_handoff_is_dynamic_and_idempotent() -> None:
@@ -382,3 +397,63 @@ def test_s9_maya_no_writes_and_own_account_is_cited(tmp_path: Path) -> None:
         )
 
     asyncio.run(run())
+
+
+def _policy_classification() -> str:
+    return json.dumps(
+        {
+            "scope": "maya",
+            "intent": "policy_question",
+            "action_requested": False,
+            "target_employee_id": None,
+            "system_name": None,
+            "access_level": None,
+            "business_justification": None,
+        }
+    )
+
+
+async def _run_policy_turn(tmp_path: Path, responses: list[str]) -> dict[str, Any]:
+    async with open_checkpointer(tmp_path / "checkpoints.sqlite3") as checkpointer:
+        graph = build_agent_graph(
+            model=FakeModel([_policy_classification(), *responses]),
+            tool_executor=FakeToolExecutor(),
+            approval_store=ApprovalStore(tmp_path / "approvals.sqlite3"),
+            checkpointer=checkpointer,
+        )
+        return await graph.ainvoke(
+            {
+                "message": "What is the onboarding policy?",
+                "caller_employee_id": "E010",
+                "caller_group": "Regular Employee",
+                "thread_id": "citation-thread",
+            },
+            config={"configurable": {"thread_id": "citation-thread"}},
+        )
+
+
+def test_uncited_maya_answer_is_retried_with_feedback(tmp_path: Path) -> None:
+    cited = (
+        "## Onboarding\n"
+        "Tasks are only complete when the database says so "
+        f"[{POLICY['source']}]."
+    )
+    result = asyncio.run(
+        _run_policy_turn(tmp_path, ["Tasks are complete when done.", cited])
+    )
+
+    assert result["status"] == "completed"
+    assert result["answer"] == cited
+
+
+def test_maya_answer_falls_back_to_a_cited_refusal_instead_of_failing(
+    tmp_path: Path,
+) -> None:
+    result = asyncio.run(
+        _run_policy_turn(tmp_path, ["No citation here.", "Still none."])
+    )
+
+    assert result["status"] == "completed"
+    assert "couldn't produce a fully cited answer" in result["answer"]
+    assert f"[{POLICY['source']}]" in result["answer"]
+    assert "[conversation:turn-1]" in result["answer"]

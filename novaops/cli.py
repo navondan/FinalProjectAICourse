@@ -64,6 +64,17 @@ def _build_parser() -> argparse.ArgumentParser:
     server = commands.add_parser("serve", help="Start the MCP tools server over HTTP")
     server.add_argument("--host", default="127.0.0.1")
     server.add_argument("--port", type=int, default=9876)
+
+    run_set = commands.add_parser(
+        "run-set",
+        help="Replay a golden or evaluation set with per-case isolated databases",
+    )
+    run_set.add_argument("--set", dest="set_path", type=Path, required=True)
+    run_set.add_argument("--output", type=Path, required=True)
+    run_set.add_argument("--trace-index", type=Path, required=True)
+    run_set.add_argument(
+        "--only", nargs="+", help="Run only these item ids (for spot checks)"
+    )
     return parser
 
 
@@ -124,6 +135,62 @@ def main() -> None:
         print(f"\nStatus: {result['status']}")
     elif args.command == "serve":
         _serve(settings, host=args.host, port=args.port)
+    elif args.command == "run-set":
+        _run_set(
+            settings,
+            set_path=args.set_path,
+            output=args.output,
+            trace_index_path=args.trace_index,
+            only=args.only,
+        )
+
+
+def _run_set(
+    settings: Settings,
+    *,
+    set_path: Path,
+    output: Path,
+    trace_index_path: Path,
+    only: list[str] | None,
+) -> None:
+    from datetime import datetime, timezone
+
+    from novaops.evals.harness import (
+        in_process_executor_factory,
+        load_plan,
+        run_plan,
+        summarize,
+    )
+
+    plan = load_plan(set_path)
+    if only:
+        unknown = set(only) - {item.item_id for item in plan.items}
+        if unknown:
+            raise ValueError(f"Unknown item ids for --only: {sorted(unknown)}")
+        plan.items = [item for item in plan.items if item.item_id in only]
+    run_tag = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
+    runs, trace_index = asyncio.run(
+        run_plan(
+            plan,
+            settings,
+            executor_factory=in_process_executor_factory(settings),
+            run_tag=run_tag,
+            progress=lambda message: print(message, flush=True),
+        )
+    )
+    output.write_text(
+        json.dumps(runs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    trace_index_path.write_text(
+        json.dumps(
+            {"set": set_path.name, "run_tag": run_tag, "turns": trace_index},
+            indent=2,
+            ensure_ascii=False,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    print(json.dumps(summarize(plan, runs), indent=2))
 
 
 def _ingest(settings: Settings, documents_dir: Path | None) -> None:

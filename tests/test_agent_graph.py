@@ -1,3 +1,4 @@
+import asyncio
 import json
 from pathlib import Path
 from typing import Any
@@ -500,3 +501,156 @@ def test_maya_manager_playbook_request_uses_permission_filtered_search(
     import asyncio
 
     asyncio.run(run())
+
+
+class FlakyTicketExecutor(FakeToolExecutor):
+    async def call_tool(self, name: str, arguments: dict[str, Any]) -> Any:
+        if name == "list_employee_tickets" and arguments.get("employee_id") != "E010":
+            self.calls.append((name, dict(arguments)))
+            raise RuntimeError("Caller 'E004' is not permitted to access employee 'Rachel'")
+        return await super().call_tool(name, arguments)
+
+
+def test_malformed_plan_is_retried_and_tool_errors_are_returned_to_the_model(
+    tmp_path: Path,
+) -> None:
+    def plan(employee_id: str) -> str:
+        return json.dumps(
+            {
+                "tool_calls": [
+                    {
+                        "name": "list_employee_tickets",
+                        "arguments": {"employee_id": employee_id},
+                    }
+                ],
+                "answer": None,
+            }
+        )
+
+    async def run() -> dict[str, Any]:
+        model = FakeModel(
+            [
+                _classification(scope="webex", intent="ticket_status", system_name="Webex"),
+                '{"tool_calls": ["list_employee_tickets"]}',
+                plan("Rachel"),
+                plan("E010"),
+                "Rachel's Webex ticket T001 is open.",
+            ]
+        )
+        executor = FlakyTicketExecutor()
+        async with open_checkpointer(tmp_path / "checkpoints.sqlite3") as checkpointer:
+            graph = build_agent_graph(
+                model=model,
+                tool_executor=executor,
+                approval_store=ApprovalStore(tmp_path / "approvals.sqlite3"),
+                checkpointer=checkpointer,
+            )
+            result = await graph.ainvoke(
+                {
+                    "message": "What is the status of Rachel's Webex ticket?",
+                    "caller_employee_id": "E004",
+                    "caller_group": "HR Group",
+                    "thread_id": "flaky",
+                },
+                config={"configurable": {"thread_id": "flaky"}},
+            )
+        assert "plan_feedback" in model.calls[2][0]
+        assert "error" in json.loads(model.calls[3][0])["tool_results"][0]["result"]
+        return result
+
+    result = asyncio.run(run())
+
+    assert result["status"] == "completed"
+    assert result["answer"] == "Rachel's Webex ticket T001 is open."
+    assert [entry["result"] for entry in result["tool_history"]] == [
+        {"error": "Caller 'E004' is not permitted to access employee 'Rachel'"},
+        [{"ticket_id": "T001", "status": "open"}],
+    ]
+
+
+class UnknownEmployeeExecutor(FakeToolExecutor):
+    async def call_tool(self, name: str, arguments: dict[str, Any]) -> Any:
+        if name == "get_employee":
+            self.calls.append((name, dict(arguments)))
+            raise RuntimeError("Caller 'E004' is not permitted to access employee 'rrachel'")
+        return await super().call_tool(name, arguments)
+
+
+def test_unresolvable_target_blocks_the_turn_without_any_further_calls(
+    tmp_path: Path,
+) -> None:
+    async def run() -> tuple[dict[str, Any], UnknownEmployeeExecutor]:
+        executor = UnknownEmployeeExecutor()
+        async with open_checkpointer(tmp_path / "checkpoints.sqlite3") as checkpointer:
+            graph = build_agent_graph(
+                model=FakeModel(
+                    [
+                        _classification(
+                            scope="webex",
+                            intent="access_request",
+                            action_requested=True,
+                            target_employee_id="rrachel",
+                            system_name="Webex",
+                        )
+                    ]
+                ),
+                tool_executor=executor,
+                approval_store=ApprovalStore(tmp_path / "approvals.sqlite3"),
+                checkpointer=checkpointer,
+            )
+            result = await graph.ainvoke(
+                {
+                    "message": "file webex for rrachel",
+                    "caller_employee_id": "E004",
+                    "caller_group": "HR Group",
+                    "thread_id": "unknown-target",
+                },
+                config={"configurable": {"thread_id": "unknown-target"}},
+            )
+        return result, executor
+
+    result, executor = asyncio.run(run())
+
+    assert result["status"] == "blocked"
+    assert "no action was taken" in result["answer"]
+    assert [name for name, _ in executor.calls if name != "search_knowledge_base"] == [
+        "get_employee"
+    ]
+
+
+def test_mislabeled_classifier_scope_and_intent_fall_back_instead_of_failing(
+    tmp_path: Path,
+) -> None:
+    async def run() -> dict[str, Any]:
+        async with open_checkpointer(tmp_path / "checkpoints.sqlite3") as checkpointer:
+            graph = build_agent_graph(
+                model=FakeModel(
+                    [
+                        _classification(scope="other", intent="ground_rules"),
+                        json.dumps(
+                            {"tool_calls": [], "answer": "Noted [conversation:turn-1]."}
+                        ),
+                    ]
+                ),
+                tool_executor=FakeToolExecutor(),
+                approval_store=ApprovalStore(tmp_path / "approvals.sqlite3"),
+                checkpointer=checkpointer,
+            )
+            return await graph.ainvoke(
+                {
+                    "message": "Ground rules: don't file anything yet. Got it?",
+                    "caller_employee_id": "E004",
+                    "caller_group": "HR Group",
+                    "thread_id": "rules",
+                },
+                config={"configurable": {"thread_id": "rules"}},
+            )
+
+    result = asyncio.run(run())
+
+    assert (result["scope"], result["intent"], result["status"]) == (
+        "maya",
+        "other",
+        "completed",
+    )
+    assert not {"create_access_request", "create_ticket"} & set(result["selected_tools"])

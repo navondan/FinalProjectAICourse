@@ -8,6 +8,8 @@ import pytest
 
 from novaops.core.config import Settings
 from novaops.core.tracing import (
+    clear_last_trace_id,
+    last_trace_id,
     new_request_id,
     trace_agent_run,
     trajectory_digest,
@@ -87,6 +89,9 @@ def test_trace_binding_propagates_attributes_and_records_result(
         def flush(self) -> None:
             flushes.append(True)
 
+        def get_current_trace_id(self) -> str:
+            return "trace-abc"
+
     class FakeLangfuseClient(FakeClient):
         def __init__(self, *, public_key: str, secret_key: str, host: str) -> None:
             assert public_key == "public"
@@ -143,6 +148,20 @@ def test_trace_binding_propagates_attributes_and_records_result(
     assert updates[0]["metadata"]["status"] == "pending"
     assert updates[0]["metadata"]["trajectory_digest"]["tools"]
     assert flushes == [True]
+    assert tracing.trace_id == "trace-abc"
+    assert last_trace_id() == "trace-abc"
+
+    clear_last_trace_id()
+    with pytest.raises(RuntimeError):
+        with trace_agent_run(
+            settings,
+            user_id="E001",
+            session_id="thread-1",
+            request_id="request-3",
+            workflow_request_id="request-3",
+        ):
+            raise RuntimeError("turn failed")
+    assert last_trace_id() == "trace-abc"  # still findable after a failed turn
 
 
 def test_trace_configuration_requires_both_credentials() -> None:

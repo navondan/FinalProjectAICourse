@@ -15,6 +15,16 @@ from novaops.core.config import Settings
 _REQUEST_ID_PATTERN = re.compile(r"^[A-Za-z0-9._:-]{1,128}$")
 _MAX_DIGEST_CHARS = 1500
 _ACTIVE_CLIENT: ContextVar[Any | None] = ContextVar("novaops_langfuse_client", default=None)
+_LAST_TRACE_ID: ContextVar[str | None] = ContextVar("novaops_last_trace_id", default=None)
+
+
+def last_trace_id() -> str | None:
+    """Return the Langfuse trace ID of the latest run in this context, even if it failed."""
+    return _LAST_TRACE_ID.get()
+
+
+def clear_last_trace_id() -> None:
+    _LAST_TRACE_ID.set(None)
 
 
 class ToolObservation:
@@ -113,6 +123,7 @@ class TraceSession:
     callbacks: tuple[Any, ...] = ()
     root_span: Any | None = None
     client: Any | None = None
+    trace_id: str | None = None
 
     def record_result(self, state: dict[str, Any]) -> None:
         if self.root_span is None:
@@ -151,6 +162,7 @@ def trace_agent_run(
         )
 
     if not has_public_key:
+        _LAST_TRACE_ID.set(None)
         yield TraceSession(
             request_id=request_id,
             workflow_request_id=workflow_request_id,
@@ -181,6 +193,8 @@ def trace_agent_run(
             input={"request_id": request_id, "workflow_request_id": workflow_request_id},
         ) as root_span:
             client_token = _ACTIVE_CLIENT.set(client)
+            trace_id = client.get_current_trace_id()
+            _LAST_TRACE_ID.set(trace_id)
             try:
                 yield TraceSession(
                     request_id=request_id,
@@ -188,6 +202,7 @@ def trace_agent_run(
                     callbacks=(handler,),
                     root_span=root_span,
                     client=client,
+                    trace_id=trace_id,
                 )
             except BaseException as exc:
                 root_span.update(

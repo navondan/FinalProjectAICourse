@@ -1,0 +1,805 @@
+{
+  "set": "GOLDEN-DATASETS.json",
+  "run_tag": "20261119T162638",
+  "turns": {
+    "S1-quick-policy:1": {
+      "item_id": "S1-quick-policy",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E010",
+      "session_id": "S1-quick-policy-20261119T162638",
+      "request_id": "S1-quick-policy:1",
+      "trace_id": "57ea96cc72e96ebb1eb203b7b45790fc",
+      "status": "completed"
+    },
+    "S1-quick-policy:2": {
+      "item_id": "S1-quick-policy",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E010",
+      "session_id": "S1-quick-policy-20261119T162638",
+      "request_id": "S1-quick-policy:2",
+      "trace_id": "110781cb55ab2fb6df7eba581963ef2e",
+      "status": "completed"
+    },
+    "S1-quick-policy:3": {
+      "item_id": "S1-quick-policy",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E010",
+      "session_id": "S1-quick-policy-20261119T162638",
+      "request_id": "S1-quick-policy:3",
+      "trace_id": "56d9563db0cc1926a0454088a944bcf5",
+      "status": "completed"
+    },
+    "S1-quick-policy:4": {
+      "item_id": "S1-quick-policy",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E010",
+      "session_id": "S1-quick-policy-20261119T162638",
+      "request_id": "S1-quick-policy:4",
+      "trace_id": "2ae67002256c5ba729d1e354e4ea5223",
+      "status": "completed"
+    },
+    "S2-onboarding-maya:1": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:1",
+      "trace_id": "1511610be191100fa6627c75a0f854d4",
+      "status": "completed"
+    },
+    "S2-onboarding-maya:2": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:2",
+      "trace_id": "eaa0cbf3310a567c351eb219f52b5706",
+      "status": "blocked"
+    },
+    "S2-onboarding-maya:3": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:3",
+      "trace_id": "d25a1a28497669fed786bddc9a3abd2d",
+      "status": "blocked"
+    },
+    "S2-onboarding-maya:4": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:4",
+      "trace_id": "72926662a2759d4f059f40c343c29b66",
+      "status": "completed"
+    },
+    "S2-onboarding-maya:5": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 5,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:5",
+      "trace_id": "83af3616e967800b24009116b8bb9e92",
+      "status": "blocked"
+    },
+    "S2-onboarding-maya:6": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 6,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:6",
+      "trace_id": "702f86b3fa811db9a5be80db88821f64",
+      "status": "blocked"
+    },
+    "S2-onboarding-maya:7": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 7,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:7",
+      "trace_id": "bb1639980e583a4f4cde079aa96b84e0",
+      "status": "blocked"
+    },
+    "S2-onboarding-maya:8": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 8,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:8",
+      "trace_id": "c4ee3cca61f4fe1b8dfb2155710917f5",
+      "status": "completed"
+    },
+    "S2-onboarding-maya:9": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 9,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:9",
+      "trace_id": "5cf779762b207269c560c778e85cc4c8",
+      "status": "completed"
+    },
+    "S2-onboarding-maya:10": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 10,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:10",
+      "trace_id": "fa27525e7c2cb25264093d14ae5cabc3",
+      "status": "blocked"
+    },
+    "S2-onboarding-maya:11": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 11,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:11",
+      "trace_id": "61fff29390c5abe4a383a92c285b1c1d",
+      "status": "needs_human"
+    },
+    "S2-onboarding-maya:12": {
+      "item_id": "S2-onboarding-maya",
+      "workflow": null,
+      "turn": 12,
+      "caller_employee_id": "E004",
+      "session_id": "S2-onboarding-maya-20261119T162638",
+      "request_id": "S2-onboarding-maya:12",
+      "trace_id": "fb3a19862ce8a58c9eb4983d46257048",
+      "status": "blocked"
+    },
+    "S3-intent-shift:1": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:1",
+      "trace_id": "8ee5ba8ce746a3251588dba56788ea89",
+      "status": "completed"
+    },
+    "S3-intent-shift:2": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:2",
+      "trace_id": "e19145c258374ba43ac138af27534252",
+      "status": "completed"
+    },
+    "S3-intent-shift:3": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:3",
+      "trace_id": "0eb2de516e4867cbdfdabece688ca367",
+      "status": "completed"
+    },
+    "S3-intent-shift:4": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:4",
+      "trace_id": "4c8490e2fd98f8bdaa9d00bc03e2a572",
+      "status": "completed"
+    },
+    "S3-intent-shift:5": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 5,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:5",
+      "trace_id": "752bb4ae2bf3c5eb35a4464836f24a87",
+      "status": "completed"
+    },
+    "S3-intent-shift:6": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 6,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:6",
+      "trace_id": "9dde6f37397de003d91efae17bc8a08b",
+      "status": "completed"
+    },
+    "S3-intent-shift:7": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 7,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:7",
+      "trace_id": "98926efebd8b8801fe938d8aa57d226a",
+      "status": "completed"
+    },
+    "S3-intent-shift:8": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 8,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:8",
+      "trace_id": "eb4562687d7598327806f544e62b06d0",
+      "status": "completed"
+    },
+    "S3-intent-shift:9": {
+      "item_id": "S3-intent-shift",
+      "workflow": null,
+      "turn": 9,
+      "caller_employee_id": "E007",
+      "session_id": "S3-intent-shift-20261119T162638",
+      "request_id": "S3-intent-shift:9",
+      "trace_id": "96e508946cf4f9984baab27afa35a62e",
+      "status": "completed"
+    },
+    "S4-constraint-carry:1": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:1",
+      "trace_id": "bbfcf3035c68c442eb32dde5bc1b2420",
+      "status": "completed"
+    },
+    "S4-constraint-carry:2": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:2",
+      "trace_id": "c3ed237b6d46a74387a97870e4cf9188",
+      "status": "completed"
+    },
+    "S4-constraint-carry:3": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:3",
+      "trace_id": "da5aba48d9f55177fbe813bb39470bc6",
+      "status": "completed"
+    },
+    "S4-constraint-carry:4": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:4",
+      "trace_id": "ee37da025bb0aca76b4c15a7e6dcee30",
+      "status": "completed"
+    },
+    "S4-constraint-carry:5": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 5,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:5",
+      "trace_id": "9366e95ae772c12ea1010f0fab6b66d3",
+      "status": "completed"
+    },
+    "S4-constraint-carry:6": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 6,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:6",
+      "trace_id": "f419ad4b86f4017847f6b3cccffadcc4",
+      "status": "completed"
+    },
+    "S4-constraint-carry:7": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 7,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:7",
+      "trace_id": "c94744cbf1b69338536cb833faabed73",
+      "status": "completed"
+    },
+    "S4-constraint-carry:8": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 8,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:8",
+      "trace_id": "e1bb1b3d0ce4f97f720cfe867be583ae",
+      "status": "blocked"
+    },
+    "S4-constraint-carry:9": {
+      "item_id": "S4-constraint-carry",
+      "workflow": null,
+      "turn": 9,
+      "caller_employee_id": "E006",
+      "session_id": "S4-constraint-carry-20261119T163914",
+      "request_id": "S4-constraint-carry:9",
+      "trace_id": "db7bf806b96b32b4d4dd3050f8ed0999",
+      "status": "completed"
+    },
+    "S5-noisy-inbox:1": {
+      "item_id": "S5-noisy-inbox",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E007",
+      "session_id": "S5-noisy-inbox-20261119T162638",
+      "request_id": "S5-noisy-inbox:1",
+      "trace_id": "7d21ca4784fbb0aff71a226a77ce822e",
+      "status": "completed"
+    },
+    "S5-noisy-inbox:2": {
+      "item_id": "S5-noisy-inbox",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E007",
+      "session_id": "S5-noisy-inbox-20261119T162638",
+      "request_id": "S5-noisy-inbox:2",
+      "trace_id": "11a1b5dd6ce1b490e1b0c8ba5f60bc66",
+      "status": "completed"
+    },
+    "S5-noisy-inbox:3": {
+      "item_id": "S5-noisy-inbox",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E007",
+      "session_id": "S5-noisy-inbox-20261119T162638",
+      "request_id": "S5-noisy-inbox:3",
+      "trace_id": "23abb0a5e2e8fdba5570c64ec6979005",
+      "status": "needs_human"
+    },
+    "S5-noisy-inbox:4": {
+      "item_id": "S5-noisy-inbox",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E007",
+      "session_id": "S5-noisy-inbox-20261119T162638",
+      "request_id": "S5-noisy-inbox:4",
+      "trace_id": "4e290f85dbd915e92ca55a6a0985c3eb",
+      "status": "completed"
+    },
+    "S5-noisy-inbox:5": {
+      "item_id": "S5-noisy-inbox",
+      "workflow": null,
+      "turn": 5,
+      "caller_employee_id": "E007",
+      "session_id": "S5-noisy-inbox-20261119T162638",
+      "request_id": "S5-noisy-inbox:5",
+      "trace_id": "c7827cc69451c9c42dc266693b8639e3",
+      "status": "needs_human"
+    },
+    "S5-noisy-inbox:6": {
+      "item_id": "S5-noisy-inbox",
+      "workflow": null,
+      "turn": 6,
+      "caller_employee_id": "E007",
+      "session_id": "S5-noisy-inbox-20261119T162638",
+      "request_id": "S5-noisy-inbox:6",
+      "trace_id": "a1aeb722e88afa4b7be94daaee453566",
+      "status": "needs_human"
+    },
+    "S5-noisy-inbox:7": {
+      "item_id": "S5-noisy-inbox",
+      "workflow": null,
+      "turn": 7,
+      "caller_employee_id": "E007",
+      "session_id": "S5-noisy-inbox-20261119T162638",
+      "request_id": "S5-noisy-inbox:7",
+      "trace_id": "ee61a574105987a93324ee291ec6efd5",
+      "status": "completed"
+    },
+    "S5-noisy-inbox:8": {
+      "item_id": "S5-noisy-inbox",
+      "workflow": null,
+      "turn": 8,
+      "caller_employee_id": "E007",
+      "session_id": "S5-noisy-inbox-20261119T162638",
+      "request_id": "S5-noisy-inbox:8",
+      "trace_id": "dbde7cccabeae722ac16c8cb025ab45e",
+      "status": "completed"
+    },
+    "S6-boundary-clean:1": {
+      "item_id": "S6-boundary-clean",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E004",
+      "session_id": "S6-boundary-clean-20261119T162638",
+      "request_id": "S6-boundary-clean:1",
+      "trace_id": "0c01c05b4a364e230801058396ad0536",
+      "status": "completed"
+    },
+    "S6-boundary-clean:2": {
+      "item_id": "S6-boundary-clean",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E004",
+      "session_id": "S6-boundary-clean-20261119T162638",
+      "request_id": "S6-boundary-clean:2",
+      "trace_id": "75415e5cb4d7e7af84544beba229a32f",
+      "status": "completed"
+    },
+    "S6-boundary-clean:3": {
+      "item_id": "S6-boundary-clean",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E004",
+      "session_id": "S6-boundary-clean-20261119T162638",
+      "request_id": "S6-boundary-clean:3",
+      "trace_id": "a28831ff4cd74753b33a022732710ba3",
+      "status": "blocked"
+    },
+    "S6-boundary-clean:4": {
+      "item_id": "S6-boundary-clean",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E004",
+      "session_id": "S6-boundary-clean-20261119T162638",
+      "request_id": "S6-boundary-clean:4",
+      "trace_id": "81cbff79b6ce84aa6f14f1ebf065f0e8",
+      "status": "blocked"
+    },
+    "S7-boundary-noisy:1": {
+      "item_id": "S7-boundary-noisy",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E004",
+      "session_id": "S7-boundary-noisy-20261119T162638",
+      "request_id": "S7-boundary-noisy:1",
+      "trace_id": "a833d2889fdde90e4bef80148acfa600",
+      "status": "completed"
+    },
+    "S7-boundary-noisy:2": {
+      "item_id": "S7-boundary-noisy",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E004",
+      "session_id": "S7-boundary-noisy-20261119T162638",
+      "request_id": "S7-boundary-noisy:2",
+      "trace_id": "ff091d165e4d521fa8a111ddcb2db0a5",
+      "status": "completed"
+    },
+    "S7-boundary-noisy:3": {
+      "item_id": "S7-boundary-noisy",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E004",
+      "session_id": "S7-boundary-noisy-20261119T162638",
+      "request_id": "S7-boundary-noisy:3",
+      "trace_id": "f7ffaf2636d8523f51a6400677b43bb9",
+      "status": "blocked"
+    },
+    "S7-boundary-noisy:4": {
+      "item_id": "S7-boundary-noisy",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E004",
+      "session_id": "S7-boundary-noisy-20261119T162638",
+      "request_id": "S7-boundary-noisy:4",
+      "trace_id": "66fbb378d5d140964f9c37f99aaa387c",
+      "status": "blocked"
+    },
+    "S8-boundary-heavy-noise:1": {
+      "item_id": "S8-boundary-heavy-noise",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E004",
+      "session_id": "S8-boundary-heavy-noise-20261119T162638",
+      "request_id": "S8-boundary-heavy-noise:1",
+      "trace_id": "f7c51d965036d71d06b8a6e253591b50",
+      "status": "completed"
+    },
+    "S8-boundary-heavy-noise:2": {
+      "item_id": "S8-boundary-heavy-noise",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E004",
+      "session_id": "S8-boundary-heavy-noise-20261119T162638",
+      "request_id": "S8-boundary-heavy-noise:2",
+      "trace_id": "5af582ae86ec102c05733121b387bfdf",
+      "status": "completed"
+    },
+    "S8-boundary-heavy-noise:3": {
+      "item_id": "S8-boundary-heavy-noise",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E004",
+      "session_id": "S8-boundary-heavy-noise-20261119T162638",
+      "request_id": "S8-boundary-heavy-noise:3",
+      "trace_id": "6b8b2186a18da44ffd22923a31690e15",
+      "status": "blocked"
+    },
+    "S8-boundary-heavy-noise:4": {
+      "item_id": "S8-boundary-heavy-noise",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E004",
+      "session_id": "S8-boundary-heavy-noise-20261119T162638",
+      "request_id": "S8-boundary-heavy-noise:4",
+      "trace_id": "44f12a087e1e998d69cb80bc426bdf18",
+      "status": "blocked"
+    },
+    "S9-maya-own-account:1": {
+      "item_id": "S9-maya-own-account",
+      "workflow": null,
+      "turn": 1,
+      "caller_employee_id": "E001",
+      "session_id": "S9-maya-own-account-20261119T162638",
+      "request_id": "S9-maya-own-account:1",
+      "trace_id": "6340109b7f55c1917bd2dc7ffb43eeb2",
+      "status": "completed"
+    },
+    "S9-maya-own-account:2": {
+      "item_id": "S9-maya-own-account",
+      "workflow": null,
+      "turn": 2,
+      "caller_employee_id": "E001",
+      "session_id": "S9-maya-own-account-20261119T162638",
+      "request_id": "S9-maya-own-account:2",
+      "trace_id": "441c9c1440a99d80536a82e96ffb2fd6",
+      "status": "completed"
+    },
+    "S9-maya-own-account:3": {
+      "item_id": "S9-maya-own-account",
+      "workflow": null,
+      "turn": 3,
+      "caller_employee_id": "E001",
+      "session_id": "S9-maya-own-account-20261119T162638",
+      "request_id": "S9-maya-own-account:3",
+      "trace_id": "b4807e4ec1c86fb4237f0a829fb2ba7e",
+      "status": "completed"
+    },
+    "S9-maya-own-account:4": {
+      "item_id": "S9-maya-own-account",
+      "workflow": null,
+      "turn": 4,
+      "caller_employee_id": "E001",
+      "session_id": "S9-maya-own-account-20261119T162638",
+      "request_id": "S9-maya-own-account:4",
+      "trace_id": "55229e8fa55dfd85fc16e045f288e087",
+      "status": "completed"
+    },
+    "S9-maya-own-account:5": {
+      "item_id": "S9-maya-own-account",
+      "workflow": null,
+      "turn": 5,
+      "caller_employee_id": "E001",
+      "session_id": "S9-maya-own-account-20261119T162638",
+      "request_id": "S9-maya-own-account:5",
+      "trace_id": "bbad0d984dc60ebede846d14f2e3292a",
+      "status": "completed"
+    },
+    "SIMPLE_001": {
+      "item_id": "SIMPLE_001",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_001-20261119T162638",
+      "request_id": "SIMPLE_001:1",
+      "trace_id": "568906863c51b8b6d4c9f8a44d3f6693",
+      "status": "completed"
+    },
+    "SIMPLE_002": {
+      "item_id": "SIMPLE_002",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_002-20261119T162638",
+      "request_id": "SIMPLE_002:1",
+      "trace_id": "23ad0cd223018d16f4d7ddff9b9769f2",
+      "status": "completed"
+    },
+    "SIMPLE_003": {
+      "item_id": "SIMPLE_003",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_003-20261119T162638",
+      "request_id": "SIMPLE_003:1",
+      "trace_id": "ab1ce4aed1c321c978b948471fb83263",
+      "status": "completed"
+    },
+    "SIMPLE_004": {
+      "item_id": "SIMPLE_004",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_004-20261119T162638",
+      "request_id": "SIMPLE_004:1",
+      "trace_id": "aaa3bf0a1159e9ebd891a3d7b353220f",
+      "status": "completed"
+    },
+    "SIMPLE_005": {
+      "item_id": "SIMPLE_005",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E007",
+      "session_id": "SIMPLE_005-20261119T162638",
+      "request_id": "SIMPLE_005:1",
+      "trace_id": "37e45e9f6153ddfc3b5dd9effe21aff0",
+      "status": "completed"
+    },
+    "SIMPLE_006": {
+      "item_id": "SIMPLE_006",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_006-20261119T162638",
+      "request_id": "SIMPLE_006:1",
+      "trace_id": "ae3bbb68a4c3397eede78bc31ddf22cb",
+      "status": "needs_human"
+    },
+    "SIMPLE_007": {
+      "item_id": "SIMPLE_007",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E004",
+      "session_id": "SIMPLE_007-20261119T162638",
+      "request_id": "SIMPLE_007:1",
+      "trace_id": "302d8f8547bff39fb23b33898acc47f3",
+      "status": "completed"
+    },
+    "SIMPLE_008": {
+      "item_id": "SIMPLE_008",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E004",
+      "session_id": "SIMPLE_008-20261119T162638",
+      "request_id": "SIMPLE_008:1",
+      "trace_id": "a7aa5b0f842be43448b13b424749f2c0",
+      "status": "blocked"
+    },
+    "SIMPLE_009": {
+      "item_id": "SIMPLE_009",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_009-20261119T162638",
+      "request_id": "SIMPLE_009:1",
+      "trace_id": "f3476345a73113d52bab4fc684b277e2",
+      "status": "completed"
+    },
+    "SIMPLE_010": {
+      "item_id": "SIMPLE_010",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_010-20261119T162638",
+      "request_id": "SIMPLE_010:1",
+      "trace_id": "efc8c44fcd320c1bdcf0884b4ab747c6",
+      "status": "needs_human"
+    },
+    "SIMPLE_011": {
+      "item_id": "SIMPLE_011",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E007",
+      "session_id": "SIMPLE_011-20261119T162638",
+      "request_id": "SIMPLE_011:1",
+      "trace_id": "03f00650c7c535e1521817228a3eddeb",
+      "status": "completed"
+    },
+    "SIMPLE_012": {
+      "item_id": "SIMPLE_012",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E007",
+      "session_id": "SIMPLE_012-20261119T162638",
+      "request_id": "SIMPLE_012:1",
+      "trace_id": "d5194d53527fda4d81f0199f121555f0",
+      "status": "completed"
+    },
+    "SIMPLE_013": {
+      "item_id": "SIMPLE_013",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_013-20261119T162638",
+      "request_id": "SIMPLE_013:1",
+      "trace_id": "c12f852243f433c2ba963c6c666d2408",
+      "status": "needs_human"
+    },
+    "SIMPLE_014": {
+      "item_id": "SIMPLE_014",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_014-20261119T162638",
+      "request_id": "SIMPLE_014:1",
+      "trace_id": "61db4bd86b72d1e5d4c3e3e99d10f37e",
+      "status": "completed"
+    },
+    "SIMPLE_015": {
+      "item_id": "SIMPLE_015",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_015-20261119T162638",
+      "request_id": "SIMPLE_015:1",
+      "trace_id": "295747e557af1383e512d5a723b558ca",
+      "status": "completed"
+    },
+    "SIMPLE_016": {
+      "item_id": "SIMPLE_016",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_016-20261119T162638",
+      "request_id": "SIMPLE_016:1",
+      "trace_id": "140b92a000b832fe230ca913841da8b4",
+      "status": "completed"
+    },
+    "SIMPLE_017": {
+      "item_id": "SIMPLE_017",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_017-20261119T162638",
+      "request_id": "SIMPLE_017:1",
+      "trace_id": "4a530af96275a87631ee4cb618675bfb",
+      "status": "completed"
+    },
+    "SIMPLE_018": {
+      "item_id": "SIMPLE_018",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E007",
+      "session_id": "SIMPLE_018-20261119T162638",
+      "request_id": "SIMPLE_018:1",
+      "trace_id": "98fcce248b7b797277ff7adc18749436",
+      "status": "completed"
+    },
+    "SIMPLE_019": {
+      "item_id": "SIMPLE_019",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E004",
+      "session_id": "SIMPLE_019-20261119T162638",
+      "request_id": "SIMPLE_019:1",
+      "trace_id": "c0e71fd0f65a276675978813b91db011",
+      "status": "completed"
+    },
+    "SIMPLE_020": {
+      "item_id": "SIMPLE_020",
+      "workflow": null,
+      "turn": null,
+      "caller_employee_id": "E010",
+      "session_id": "SIMPLE_020-20261119T162638",
+      "request_id": "SIMPLE_020:1",
+      "trace_id": "e125e3b66ad3d06fc424ee56bb6f8e85",
+      "status": "completed"
+    }
+  },
+  "rerun_tags": [
+    {
+      "items": [
+        "S4-constraint-carry"
+      ],
+      "run_tag": "20261119T163914",
+      "reason": "classifier scope fallback fix"
+    }
+  ]
+}

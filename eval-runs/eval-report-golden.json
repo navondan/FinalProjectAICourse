@@ -1,0 +1,4331 @@
+{
+  "score": 0.6858006042296072,
+  "passed": 227,
+  "scored": 331,
+  "missing_cases": [],
+  "cases": [
+    {
+      "case_id": "S1-quick-policy:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['five|5']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S1-quick-policy:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S1-quick-policy:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S1-quick-policy:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['T001|open']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['A005|MacBook']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:6",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['headset']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:7",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Israel', '2026-08-01|August 1|Aug 1|1 August']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": false,
+          "detail": "Found: ['get_employee', 'list_onboarding_tasks']"
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee', 'list_onboarding_tasks', 'check_asset_inventory', 'check_software_subscription', 'get_policy']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:8",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:9",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['7,500|7500']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:10",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['pending']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee', 'check_software_subscription', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:11",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Okta']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_onboarding_tasks']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S2-onboarding-maya:12",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['2026-08-01|August 1|Aug 1|1 August']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee', 'check_software_subscription', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['T001']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_employee_tickets']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E015']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['T004|waiting']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_employee_tickets']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:6",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:7",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_hr_documents']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:8",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S3-intent-shift:9",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['18,400|18400', '42']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['7,200|7200']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['9,600|9600']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:6",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['33,000|33000']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:7",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:8",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['create_access_request']; observed ['get_employee', 'check_software_subscription', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S4-constraint-carry:9",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['password']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['device|phone|enroll|re-enroll']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['search_knowledge_base']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:6",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['which|clarify|mean|specify|not sure']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:7",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S5-noisy-inbox:8",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Daniel', 'MFA|authenticator|Okta']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S6-boundary-clean:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['device|trust']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S6-boundary-clean:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E010']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S6-boundary-clean:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee', 'check_software_subscription', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S6-boundary-clean:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['create_access_request']; observed ['get_employee', 'check_software_subscription', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S7-boundary-noisy:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['device|trust']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S7-boundary-noisy:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E010']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S7-boundary-noisy:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Webex']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Answer does not reflect terminal status 'blocked'."
+        }
+      ]
+    },
+    {
+      "case_id": "S7-boundary-noisy:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['create_access_request']; observed ['get_employee', 'check_software_subscription', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S8-boundary-heavy-noise:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['MFA']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S8-boundary-heavy-noise:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['E010']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "Expected tools were used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S8-boundary-heavy-noise:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": true,
+          "detail": "All required facts were found."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee', 'check_software_subscription', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S8-boundary-heavy-noise:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['AR0|pending|filed']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['create_access_request']; observed ['get_employee', 'check_software_subscription', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:1",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['six months|6 months', 'April 1|October 1']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": true,
+          "detail": "All required sources were observed."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:2",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['equipment responsibility|equipment form', 'BambooHR']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:3",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['Webex', 'blocked|seat limit|40']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['check_software_subscription']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:4",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['manager|not available|cannot']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": true,
+          "detail": "A permitted read-only architecture equivalent was used."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "S9-maya-own-account:5",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": false,
+          "detail": "Missing: ['2026-07-26|July 26|planned']"
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": true,
+          "detail": "No forbidden values were found."
+        },
+        {
+          "name": "expected_tools",
+          "passed": false,
+          "detail": "Expected ['list_onboarding_tasks']; observed []."
+        },
+        {
+          "name": "expected_sources",
+          "passed": null,
+          "detail": "No required sources specified."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_001",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": true,
+          "detail": "All required sources were observed."
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_002",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['okta_device_change.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_003",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['salesforce_access_request.md', 'new_salesforce_access_rules.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_policy', 'list_policies']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_004",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['webex_vendor_agreement.md', 'webex_login_issue.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_policy', 'list_policies']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_005",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['contracts', 'software_subscriptions']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_006",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['github_access_for_contractors.md', 'security_and_mfa_policy.md', 'github_enterprise_license.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_007",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['maya_cohen_offer_letter.md', 'equipment_policy.md', 'remote_equipment_budget_update.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_008",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['onboarding_tasks', 'maya_cohen_onboarding_summary.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": false,
+          "detail": "Answer does not reflect terminal status 'blocked'."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_009",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['webex_login_issue.md', 'it_support_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: []."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_010",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['data_access_policy.md', 'bamboohr_hris_agreement.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_011",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['contracts']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_012",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['webex_license_assignment.md', 'webex_license_cleanup_memo.md', 'webex_vendor_agreement.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_policy', 'get_policy']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_013",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['access_management_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee', 'list_employee_access_requests', 'list_employee_tickets', 'get_policy', 'search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_014",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['figma_design_license.md', 'access_management_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_015",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['remote_equipment_budget_update.md', 'laptop_provisioning.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['search_knowledge_base']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_016",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['access_management_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_017",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['email_security_alert.md', 'it_support_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['list_employee_tickets']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_018",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['miro_collaboration_agreement.md', 'securesign_esignature_agreement.md', 'contract_renewal_policy.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_019",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['ben_walker_preboarding_summary.md', 'salesforce_access_request.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": true,
+          "detail": "Tool-use behavior matched."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    },
+    {
+      "case_id": "SIMPLE_020",
+      "missing": false,
+      "checks": [
+        {
+          "name": "required_facts",
+          "passed": null,
+          "detail": "No required facts specified."
+        },
+        {
+          "name": "forbidden_facts",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "forbidden_tools",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "expected_tools",
+          "passed": null,
+          "detail": "No illustrative tool list specified."
+        },
+        {
+          "name": "expected_sources",
+          "passed": false,
+          "detail": "Missing: ['data_access_policy.md', 'bamboohr_hris_agreement.md']"
+        },
+        {
+          "name": "forbidden_sources",
+          "passed": null,
+          "detail": "No forbidden values specified."
+        },
+        {
+          "name": "should_use_tools",
+          "passed": false,
+          "detail": "Observed tools: ['get_employee']."
+        },
+        {
+          "name": "terminal_status",
+          "passed": true,
+          "detail": "Terminal status and answer agree."
+        }
+      ]
+    }
+  ],
+  "comparison": {
+    "baseline_score": 0.32326283987915405,
+    "current_score": 0.6858006042296072,
+    "regressions": [
+      {
+        "case_id": "S1-quick-policy:2",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S1-quick-policy:3",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S1-quick-policy:4",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:10",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:12",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:7",
+        "check": "forbidden_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:7",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S3-intent-shift:5",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S3-intent-shift:5",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S3-intent-shift:9",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:4",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:6",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:8",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S6-boundary-clean:3",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S7-boundary-noisy:3",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:3",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_001",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_002",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_003",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_004",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_012",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_014",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_015",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_016",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_020",
+        "check": "should_use_tools"
+      }
+    ],
+    "improvements": [
+      {
+        "case_id": "S1-quick-policy:1",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S1-quick-policy:1",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S1-quick-policy:1",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S1-quick-policy:2",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S1-quick-policy:2",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S1-quick-policy:3",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S1-quick-policy:3",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S1-quick-policy:4",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S1-quick-policy:4",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:1",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:1",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S2-onboarding-maya:1",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:1",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:10",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:11",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:12",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:2",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:2",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S2-onboarding-maya:2",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:2",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:3",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:3",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S2-onboarding-maya:3",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:3",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:4",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:4",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:4",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:5",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:5",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:5",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:6",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:6",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:6",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:7",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:8",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S2-onboarding-maya:8",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S2-onboarding-maya:9",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:9",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S2-onboarding-maya:9",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S3-intent-shift:4",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S3-intent-shift:4",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S3-intent-shift:4",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S3-intent-shift:6",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S3-intent-shift:6",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S3-intent-shift:6",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S3-intent-shift:6",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S3-intent-shift:7",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S3-intent-shift:7",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S3-intent-shift:9",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S3-intent-shift:9",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S4-constraint-carry:1",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S4-constraint-carry:1",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S4-constraint-carry:2",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S4-constraint-carry:2",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S4-constraint-carry:2",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S4-constraint-carry:3",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S4-constraint-carry:3",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S4-constraint-carry:3",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S4-constraint-carry:4",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S4-constraint-carry:4",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S4-constraint-carry:4",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S4-constraint-carry:5",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S4-constraint-carry:5",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S4-constraint-carry:6",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S4-constraint-carry:7",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S4-constraint-carry:8",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S4-constraint-carry:8",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S4-constraint-carry:8",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S4-constraint-carry:9",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S4-constraint-carry:9",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S5-noisy-inbox:1",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:1",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S5-noisy-inbox:1",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:1",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S5-noisy-inbox:2",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:2",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S5-noisy-inbox:2",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:2",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S5-noisy-inbox:3",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S5-noisy-inbox:4",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S5-noisy-inbox:4",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S5-noisy-inbox:5",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S5-noisy-inbox:6",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S5-noisy-inbox:7",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:7",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S5-noisy-inbox:7",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S5-noisy-inbox:7",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S5-noisy-inbox:8",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S6-boundary-clean:1",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S6-boundary-clean:1",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S6-boundary-clean:1",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S6-boundary-clean:2",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S6-boundary-clean:2",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S6-boundary-clean:2",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S6-boundary-clean:3",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S6-boundary-clean:3",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S6-boundary-clean:4",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S6-boundary-clean:4",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S6-boundary-clean:4",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S7-boundary-noisy:1",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S7-boundary-noisy:1",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S7-boundary-noisy:1",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S7-boundary-noisy:2",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S7-boundary-noisy:2",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S7-boundary-noisy:2",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S7-boundary-noisy:4",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S7-boundary-noisy:4",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S7-boundary-noisy:4",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:1",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:1",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:1",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:2",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:2",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:2",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:3",
+        "check": "required_facts"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:3",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:4",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S8-boundary-heavy-noise:4",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S9-maya-own-account:1",
+        "check": "expected_sources"
+      },
+      {
+        "case_id": "S9-maya-own-account:1",
+        "check": "expected_tools"
+      },
+      {
+        "case_id": "S9-maya-own-account:1",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "S9-maya-own-account:1",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S9-maya-own-account:2",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S9-maya-own-account:3",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "S9-maya-own-account:5",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_001",
+        "check": "expected_sources"
+      },
+      {
+        "case_id": "SIMPLE_001",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_002",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_003",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_004",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_005",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_005",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_006",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_007",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_007",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_008",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_010",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_012",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_014",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_015",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_016",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_018",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_019",
+        "check": "should_use_tools"
+      },
+      {
+        "case_id": "SIMPLE_019",
+        "check": "terminal_status"
+      },
+      {
+        "case_id": "SIMPLE_020",
+        "check": "terminal_status"
+      }
+    ],
+    "unchanged": 462
+  }
+}

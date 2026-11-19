@@ -40,6 +40,11 @@ def test_hr_document_search_is_restricted_to_hr_callers(tmp_path: Path) -> None:
     tools = NovaOpsTools(database, store, embedder, dataset_dir, ApprovalStore(database.path))
 
     assert tools.get_employee("E001", "E004")["full_name"] == "Maya Cohen"
+    assert tools.get_employee("maya cohen", "E004")["employee_id"] == "E001"
+    with pytest.raises(PermissionError, match="not permitted"):
+        tools.get_employee("Nobody Here", "E004")
+    with pytest.raises(ValueError, match="Available policies: .*remote_work"):
+        tools.get_policy("VPN access")
     assert tools.search_hr_documents("Maya offer", "E004")
     with pytest.raises(PermissionError, match="HR Group"):
         tools.search_hr_documents("Maya offer", "E001")

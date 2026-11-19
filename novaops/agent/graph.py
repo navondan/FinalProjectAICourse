@@ -51,6 +51,75 @@ _CALLER_SCOPED_TOOLS = frozenset(
     }
 )
 
+_ANSWER_SYSTEM = (
+    "Answer the user using only the supplied document and tool evidence. "
+    "Cite document source paths for factual claims. Distinguish observed facts, "
+    "actions actually taken, and next steps. Never claim access was granted "
+    "unless an application tool result explicitly says so. For document requests, "
+    "use only permission-filtered knowledge-base search; if it returns no "
+    "permitted evidence, say you cannot provide the requested information and "
+    "do not infer or reconstruct restricted content."
+)
+_MAYA_CITATION_RULES = (
+    " Citation contract: end every sentence and every bullet with at least one citation "
+    "in square brackets, copied exactly from allowed_citations, for example "
+    "[documents/policies/equipment_policy.md]. Cite tool results as [database:<tool name>] "
+    "and facts the user stated as [conversation:turn-N]. Use no other bracketed text. "
+    "Write short plain sentences or bullets; headings are optional. If citation_feedback "
+    "is present, fix exactly what it describes."
+)
+_MAYA_CITATION_ATTEMPTS = 2
+_MARKDOWN_HEADING = re.compile(r"^\s*#{1,6}\s")
+_PLAN_ATTEMPTS = 2
+_MAX_TOOL_ROUNDS = 2
+_PLAN_SYSTEM = (
+    "Choose only tools from the supplied visible tool list. Return only a JSON "
+    "object with keys tool_calls (array of objects with name and arguments) and "
+    "answer (string or null). If no tool call is needed, answer from the supplied "
+    "evidence and return an empty tool_calls array. Do not claim a tool action "
+    "occurred before it returns successfully. A tool result with an error key means "
+    "the call failed: do not repeat it unchanged; correct the arguments or answer "
+    "from what you have, stating plainly what could not be accessed."
+)
+
+
+class PlanFormatError(ValueError):
+    """The model's tool plan was malformed (as opposed to disallowed)."""
+
+
+def _tool_error_message(exc: Exception) -> str:
+    message = str(exc).split("\n    For further information", 1)[0]
+    return re.sub(r"^Error calling tool '[^']+': ", "", message)[:500]
+
+
+def _blocked_lookup(
+    state: Any,
+    requested: str,
+    failure: dict[str, Any],
+    tool_history: list[dict[str, Any]],
+) -> dict[str, Any]:
+    answer = (
+        f"I can't continue: no employee record matching {requested!r} is available to you "
+        "[database:get_employee]. Please check the name or employee ID; no action was taken "
+        "[database:get_employee]."
+    )
+    return {
+        "answer": answer,
+        "blocked_reason": failure["error"],
+        "tool_results": [{"name": "get_employee", "result": failure}],
+        "tool_calls": [],
+        "tool_history": tool_history,
+    }
+
+
+def _has_tool_error(state: Any) -> bool:
+    return any(
+        isinstance(result, dict)
+        and isinstance(result.get("result"), dict)
+        and "error" in result["result"]
+        for result in state.get("tool_results", [])
+    )
+
 
 class AgentModel(Protocol):
     model_id: str
@@ -94,6 +163,7 @@ class AgentState(TypedDict, total=False):
     checklist: dict[str, Any]
     webex_handoff: dict[str, Any]
     access_decision: dict[str, Any]
+    blocked_reason: str
 
 
 @asynccontextmanager
@@ -322,7 +392,9 @@ def build_agent_graph(
         scope = classification.get("scope")
         intent = classification.get("intent")
         if scope not in {"maya", "webex"}:
-            raise ValueError(f"Classifier returned an unknown scope: {scope!r}")
+            # Never fail a turn on a mislabeled scope: keep the thread's workflow, else
+            # default to Maya, which is read-only (no write tools are ever selected).
+            scope = state.get("scope") if state.get("scope") in {"maya", "webex"} else "maya"
         if intent not in {
             "policy_question",
             "employee_lookup",
@@ -333,7 +405,7 @@ def build_agent_graph(
             "ticket_status",
             "other",
         }:
-            raise ValueError(f"Classifier returned an unknown intent: {intent!r}")
+            intent = "other"
         action_requested = classification.get("action_requested")
         if not isinstance(action_requested, bool):
             raise ValueError("Classifier action_requested must be a boolean")
@@ -374,6 +446,7 @@ def build_agent_graph(
             "checklist": {},
             "webex_handoff": {},
             "access_decision": {},
+            "blocked_reason": "",
             "scope": scope,
             "intent": intent,
             "action_requested": action_requested,
@@ -443,6 +516,22 @@ def build_agent_graph(
             ],
         }
 
+    async def _lookup_target(
+        employee_id: str, caller_id: str, tool_history: list[dict[str, Any]]
+    ) -> dict[str, Any]:
+        """Resolve the target (ID, email or name) to one employee record, or an error."""
+        arguments = {"employee_id": employee_id, "caller_employee_id": caller_id}
+        try:
+            employee = _require_record(
+                await tool_executor.call_tool("get_employee", arguments), "employee"
+            )
+        except Exception as exc:  # noqa: BLE001 - becomes a refusal, not a crash
+            employee = {"error": _tool_error_message(exc)}
+        tool_history.append(
+            {"name": "get_employee", "arguments": arguments, "result": employee}
+        )
+        return employee
+
     async def maya_checklist(state: AgentState) -> dict[str, Any]:
         employee_id = state.get("target_employee_id") or state["caller_employee_id"]
         caller_id = state["caller_employee_id"]
@@ -455,10 +544,10 @@ def build_agent_graph(
             )
             return result
 
-        employee = await call(
-            "get_employee",
-            {"employee_id": employee_id, "caller_employee_id": caller_id},
-        )
+        employee = await _lookup_target(employee_id, caller_id, tool_history)
+        if "error" in employee:
+            return _blocked_lookup(state, employee_id, employee, tool_history)
+        employee_id = employee["employee_id"]
         tasks = await call(
             "list_onboarding_tasks",
             {"employee_id": employee_id, "caller_employee_id": caller_id},
@@ -517,13 +606,10 @@ def build_agent_graph(
             )
             return result
 
-        employee = _require_record(
-            await call(
-                "get_employee",
-                {"employee_id": employee_id, "caller_employee_id": caller_id},
-            ),
-            "employee",
-        )
+        employee = await _lookup_target(employee_id, caller_id, tool_history)
+        if "error" in employee:
+            return _blocked_lookup(state, employee_id, employee, tool_history)
+        employee_id = employee["employee_id"]
         subscription = None
         if system_name == "Webex":
             subscription = _require_record(
@@ -723,6 +809,13 @@ def build_agent_graph(
         }
 
     def model_node(state: AgentState) -> dict[str, Any]:
+        if state.get("tool_results") and _has_tool_error(state) and state.get(
+            "tool_rounds", 0
+        ) < _MAX_TOOL_ROUNDS:
+            # One corrective re-plan: the model sees the error and may fix the call.
+            replanned = _plan(state)
+            if replanned["tool_calls"] or replanned["answer"]:
+                return replanned
         if state.get("tool_results"):
             empty_permitted_search = (
                 state.get("scope") == "maya"
@@ -747,51 +840,80 @@ def build_agent_graph(
                 _validate_maya_answer_citations(answer, state)
                 return {"answer": answer, "tool_calls": []}
 
-            prompt = _answer_prompt(state)
+            if state.get("scope") == "maya":
+                return {"answer": _generate_maya_answer(state), "tool_calls": []}
+
             answer = model.generate(
-                prompt,
-                system=(
-                    "Answer the user using only the supplied document and tool evidence. "
-                    "Cite document source paths for factual claims. Distinguish observed facts, "
-                    "actions actually taken, and next steps. Never claim access was granted "
-                    "unless an application tool result explicitly says so. For document requests, "
-                    "use only permission-filtered knowledge-base search; if it returns no "
-                    "permitted evidence, say you cannot provide the requested information and "
-                    "do not infer or reconstruct restricted content."
-                ),
+                _answer_prompt(state),
+                system=_ANSWER_SYSTEM,
                 max_tokens=1200,
             )
-            if state.get("scope") == "maya":
-                _validate_maya_answer_citations(answer, state)
             return {"answer": answer, "tool_calls": []}
 
+        return _plan(state)
+
+    def _plan(state: AgentState) -> dict[str, Any]:
         visible_tools = state.get("selected_tools", [])
-        response = model.generate(
-            _plan_prompt(state, visible_tools),
-            system=(
-                "Choose only tools from the supplied visible tool list. Return only a JSON "
-                "object with keys tool_calls (array of objects with name and arguments) and "
-                "answer (string or null). If no tool call is needed, answer from the supplied "
-                "evidence and return an empty tool_calls array. Do not claim a tool action "
-                "occurred before it returns successfully."
+        feedback: str | None = None
+        for attempt in range(_PLAN_ATTEMPTS):
+            prompt = _plan_prompt(state, visible_tools)
+            if feedback:
+                prompt = json.dumps(
+                    {**json.loads(prompt), "plan_feedback": feedback}, ensure_ascii=False
+                )
+            response = model.generate(
+                prompt,
+                system=_PLAN_SYSTEM,
+                max_tokens=700,
+                temperature=0,
+            )
+            try:
+                return _validated_plan(state, response, visible_tools)
+            except PlanFormatError as exc:
+                feedback = (
+                    f"Your previous plan was rejected: {exc}. Return one JSON object; "
+                    "tool_calls must be an array of objects with a string name from "
+                    "visible_tools and an arguments object."
+                )
+        # The model could not produce a well-formed plan; answer without tools.
+        if state.get("scope") == "maya":
+            return {"tool_calls": [], "answer": _generate_maya_answer(state)}
+        return {
+            "tool_calls": [],
+            "answer": model.generate(
+                _answer_prompt(state), system=_ANSWER_SYSTEM, max_tokens=1200
             ),
-            max_tokens=700,
-            temperature=0,
-        )
-        plan = _parse_json_object(response, "tool plan")
+        }
+
+    def _validated_plan(
+        state: AgentState, response: str, visible_tools: list[str]
+    ) -> dict[str, Any]:
+        try:
+            plan = _parse_json_object(response, "tool plan")
+        except ValueError as exc:
+            raise PlanFormatError(str(exc)) from exc
         calls = plan.get("tool_calls")
+        if calls is None:
+            calls = []
         if not isinstance(calls, list):
-            raise ValueError("Tool plan tool_calls must be a list")
+            raise PlanFormatError("Tool plan tool_calls must be a list")
         valid_calls: list[dict[str, Any]] = []
         for call in calls:
             if not isinstance(call, dict):
-                raise ValueError("Every tool call must be a JSON object")
+                raise PlanFormatError("Every tool call must be a JSON object")
             name = call.get("name")
             arguments = call.get("arguments", {})
             if not isinstance(name, str) or name not in visible_tools:
-                raise PermissionError(f"Model requested a tool that is not visible: {name!r}")
+                if name in WRITE_TOOLS or not isinstance(name, str):
+                    raise PermissionError(
+                        f"Model requested a tool that is not visible: {name!r}"
+                    )
+                raise PlanFormatError(
+                    f"tool {name!r} is not available for this request; use only "
+                    "visible_tools, or answer from history and evidence"
+                )
             if not isinstance(arguments, dict):
-                raise ValueError(f"Arguments for tool {name!r} must be a JSON object")
+                raise PlanFormatError(f"Arguments for tool {name!r} must be a JSON object")
             if name in WRITE_TOOLS and not can_release_write(
                 approval_store,
                 thread_id=state["thread_id"],
@@ -807,10 +929,38 @@ def build_agent_graph(
 
         answer = plan.get("answer")
         if answer is not None and not isinstance(answer, str):
-            raise ValueError("Tool plan answer must be a string or null")
+            raise PlanFormatError("Tool plan answer must be a string or null")
         if state.get("scope") == "maya" and answer:
-            _validate_maya_answer_citations(answer, state)
+            try:
+                _validate_maya_answer_citations(answer, state)
+            except ValueError:
+                # An uncited direct answer is regenerated under the citation contract;
+                # alongside tool calls it is dropped, since the post-tool answer replaces it.
+                answer = "" if valid_calls else _generate_maya_answer(state)
         return {"tool_calls": valid_calls, "answer": answer or ""}
+
+    def _generate_maya_answer(state: AgentState) -> str:
+        allowed = sorted(_allowed_maya_citations(state))
+        feedback: str | None = None
+        for _ in range(_MAYA_CITATION_ATTEMPTS):
+            answer = model.generate(
+                _answer_prompt(
+                    state, allowed_citations=allowed, citation_feedback=feedback
+                ),
+                system=_ANSWER_SYSTEM + _MAYA_CITATION_RULES,
+                max_tokens=1200,
+            )
+            try:
+                _validate_maya_answer_citations(answer, state)
+            except ValueError as exc:
+                feedback = (
+                    f"Your previous draft was rejected: {exc}. Rewrite it so every sentence "
+                    "and every bullet ends with at least one citation copied exactly from "
+                    "allowed_citations."
+                )
+                continue
+            return answer
+        return _cited_fallback_answer(state, allowed)
 
     async def tools(state: AgentState) -> dict[str, Any]:
         results: list[dict[str, Any]] = []
@@ -856,7 +1006,15 @@ def build_agent_graph(
                         access_level=priority,
                         business_justification=description,
                     )
-            result = await tool_executor.call_tool(name, arguments)
+            if name in WRITE_TOOLS:
+                result = await tool_executor.call_tool(name, arguments)
+            else:
+                try:
+                    result = await tool_executor.call_tool(name, arguments)
+                except Exception as exc:  # noqa: BLE001 - returned to the model
+                    # A failed read (denied, unknown name, bad arguments) is evidence,
+                    # not a crash: the model sees the error and answers or refuses.
+                    result = {"error": _tool_error_message(exc)}
             results.append({"name": name, "result": result})
         return {
             "tool_results": results,
@@ -881,7 +1039,10 @@ def build_agent_graph(
         return {"tool_results": state.get("tool_results", [])}
 
     def finalize(state: AgentState) -> dict[str, Any]:
-        if state.get("access_decision"):
+        if state.get("blocked_reason"):
+            status = "blocked"
+            answer = state["answer"]
+        elif state.get("access_decision"):
             decision = state["access_decision"]
             status = decision["status"]
             answer = state["answer"]
@@ -944,7 +1105,7 @@ def build_agent_graph(
         return "tools" if state.get("tool_calls") else "finalize"
 
     def route_after_tools(state: AgentState) -> str:
-        return "rearm" if state.get("tool_rounds", 0) < 2 else "finalize"
+        return "rearm" if state.get("tool_rounds", 0) <= _MAX_TOOL_ROUNDS else "finalize"
 
     builder.add_conditional_edges(
         "retrieve",
@@ -1028,20 +1189,27 @@ def _plan_prompt(state: AgentState, visible_tools: list[str]) -> str:
     )
 
 
-def _answer_prompt(state: AgentState) -> str:
-    return json.dumps(
-        {
-            "message": state.get("message"),
-            "history": state.get("history", []),
-            "scope": state.get("scope"),
-            "intent": state.get("intent"),
-            "evidence": state.get("evidence", []),
-            "tool_results": state.get("tool_results", []),
-            "prior_tool_results": state.get("prior_tool_results", []),
-            "previous_draft": state.get("answer"),
-        },
-        ensure_ascii=False,
-    )
+def _answer_prompt(
+    state: AgentState,
+    *,
+    allowed_citations: list[str] | None = None,
+    citation_feedback: str | None = None,
+) -> str:
+    payload: dict[str, Any] = {
+        "message": state.get("message"),
+        "history": state.get("history", []),
+        "scope": state.get("scope"),
+        "intent": state.get("intent"),
+        "evidence": state.get("evidence", []),
+        "tool_results": state.get("tool_results", []),
+        "prior_tool_results": state.get("prior_tool_results", []),
+        "previous_draft": state.get("answer"),
+    }
+    if allowed_citations is not None:
+        payload["allowed_citations"] = allowed_citations
+    if citation_feedback:
+        payload["citation_feedback"] = citation_feedback
+    return json.dumps(payload, ensure_ascii=False)
 
 
 def _require_record(value: Any, label: str) -> dict[str, Any]:
@@ -1056,7 +1224,7 @@ def _require_records(value: Any, label: str) -> list[dict[str, Any]]:
     return value
 
 
-def _validate_maya_answer_citations(answer: str, state: AgentState) -> None:
+def _allowed_maya_citations(state: AgentState) -> set[str]:
     allowed_sources = {
         item["source"]
         for item in state.get("evidence", [])
@@ -1086,9 +1254,30 @@ def _validate_maya_answer_citations(answer: str, state: AgentState) -> None:
         if message.get("role") == "user":
             user_turn += 1
             allowed_sources.add(f"conversation:turn-{user_turn}")
+    return allowed_sources
 
+
+def _cited_fallback_answer(state: AgentState, allowed: list[str]) -> str:
+    """A safe, fully cited answer used when the model cannot meet the citation contract."""
+    user_turn = sum(
+        message.get("role") == "user" for message in state.get("history", [])
+    )
+    answer = (
+        "I couldn't produce a fully cited answer from the evidence available to you "
+        f"[conversation:turn-{user_turn}]."
+    )
+    sources = [source for source in allowed if not source.startswith("conversation:")]
+    if sources:
+        answer += " Please review these permitted sources: " + " ".join(
+            f"[{source}]" for source in sources
+        ) + "."
+    return answer
+
+
+def _validate_maya_answer_citations(answer: str, state: AgentState) -> None:
+    allowed_sources = _allowed_maya_citations(state)
     for line in answer.splitlines():
-        if not line.strip():
+        if not line.strip() or _MARKDOWN_HEADING.match(line):
             continue
         for sentence in re.split(r"(?<=[.!?])\s+", line.strip()):
             if not sentence.strip():

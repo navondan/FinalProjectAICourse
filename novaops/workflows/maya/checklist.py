@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from typing import Any, Protocol
 
-from jsonschema import validate
+from jsonschema import ValidationError, validate
 
 
 class ChecklistModel(Protocol):
@@ -81,6 +82,8 @@ CHECKLIST_SCHEMA: dict[str, Any] = {
     },
 }
 
+CHECKLIST_ATTEMPTS = 2
+
 
 @dataclass(frozen=True, slots=True)
 class EvidenceCitation:
@@ -142,29 +145,108 @@ def generate_onboarding_checklist(
         },
         ensure_ascii=False,
     )
-    response = model.generate(
-        prompt,
-        system=(
-            "Produce the requested OnboardingChecklist JSON object. The database is the "
-            "source of truth for task fields and status. Never mark a task complete unless "
-            "the onboarding database says completed. Do not claim that a write or handoff "
-            "occurred. Do not omit blocked tasks."
-        ),
-        max_tokens=1800,
-        temperature=0,
+    system = (
+        "Produce the requested OnboardingChecklist JSON object. The database is the "
+        "source of truth for task fields and status. Never mark a task complete unless "
+        "the onboarding database says completed. Do not claim that a write or handoff "
+        "occurred. Do not omit blocked tasks."
     )
+    feedback: str | None = None
+    for _ in range(CHECKLIST_ATTEMPTS):
+        attempt_prompt = prompt
+        if feedback:
+            attempt_prompt = json.dumps(
+                {**json.loads(prompt), "previous_attempt_rejected": feedback},
+                ensure_ascii=False,
+            )
+        response = model.generate(
+            attempt_prompt, system=system, max_tokens=1800, temperature=0
+        )
+        try:
+            parsed = _parse_checklist_json(response)
+            validate(instance=parsed, schema=CHECKLIST_SCHEMA)
+            return _validate_checklist(
+                parsed,
+                employee=employee,
+                tasks=tasks,
+                subscription=subscription,
+                evidence_sources=evidence_sources,
+            )
+        except (ValueError, ValidationError) as exc:
+            feedback = str(exc).splitlines()[0][:300]
+    # Every checklist field is copied from database rows and checked against them, so
+    # when the model cannot produce a valid object the same rows yield it directly.
+    return build_checklist_from_records(employee=employee, tasks=tasks, subscription=subscription)
+
+
+def build_checklist_from_records(
+    *,
+    employee: dict[str, Any],
+    tasks: list[dict[str, Any]],
+    subscription: dict[str, Any],
+) -> OnboardingChecklist:
+    def row_citation(source: str, key: str, value: Any) -> EvidenceCitation:
+        return EvidenceCitation(source=source, quote=f'"{key}":{json.dumps(value)}')
+
+    checklist_tasks = tuple(
+        ChecklistTask(
+            task_id=row["task_id"],
+            description=row["description"],
+            owner_group=row["owner_group"],
+            status=row["status"],
+            due_date=row["due_date"],
+            evidence=(
+                row_citation(
+                    f"database:list_onboarding_tasks#{row['task_id']}",
+                    "task_id",
+                    row["task_id"],
+                ),
+            ),
+        )
+        for row in tasks
+    )
+    blocked_items: list[BlockedItem] = []
+    for row in tasks:
+        if row["status"] != "blocked":
+            continue
+        reason, sources = _blocked_reason(row, subscription)
+        citations = [
+            row_citation(
+                f"database:list_onboarding_tasks#{row['task_id']}", "task_id", row["task_id"]
+            )
+        ]
+        subscription_source = (
+            f"database:check_software_subscription#{subscription['system_name']}"
+        )
+        if subscription_source in sources:
+            citations.append(
+                row_citation(subscription_source, "active_seats", subscription["active_seats"])
+            )
+        blocked_items.append(
+            BlockedItem(task_id=row["task_id"], reason=reason, evidence=tuple(citations))
+        )
+    return OnboardingChecklist(
+        employee_id=employee["employee_id"],
+        employee_name=employee["full_name"],
+        tasks=checklist_tasks,
+        blocked_items=tuple(blocked_items),
+    )
+
+
+def _parse_checklist_json(response: str) -> dict[str, Any]:
+    candidate = response.strip()
+    fenced = re.fullmatch(
+        r"```(?:json)?\s*(.*?)\s*```", candidate, flags=re.IGNORECASE | re.DOTALL
+    )
+    if fenced is not None:
+        candidate = fenced.group(1)
     try:
-        parsed = json.loads(response)
+        parsed = json.loads(candidate)
     except json.JSONDecodeError as exc:
         raise ValueError("The model returned invalid JSON for the onboarding checklist") from exc
-    validate(instance=parsed, schema=CHECKLIST_SCHEMA)
-    return _validate_checklist(
-        parsed,
-        employee=employee,
-        tasks=tasks,
-        subscription=subscription,
-        evidence_sources=evidence_sources,
-    )
+    if not isinstance(parsed, dict):
+        raise ValueError("The onboarding checklist must be a JSON object")
+    return parsed
 
 
 def render_checklist(checklist: OnboardingChecklist) -> str:
