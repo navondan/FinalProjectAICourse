@@ -32,10 +32,10 @@ effort, required path first.
 | M8 | Renewal *(+10)* | ✅ done | `novaops/workflows/renewal/`; `tests/test_renewal.py`; R-I-01..03 traced (same files) |
 | M9 | Eval loop | ✅ done | `novaops/evals/targets.py`, `loop.py`; `tests/test_eval_loop.py`; `eval-runs/loop-report.md`: baseline 0.686 (floor broken) → round 2 0.707, floors clean, promoted |
 | M10 | Packaging *(+5)* | ✅ done | `novaops/api/`, `Dockerfile`, `compose.yaml`, `scripts/build-images.*`; `tests/test_packaging.py`; images not built (no local Docker) |
-| **M11** | **Submission ⭐** | 🟡 **almost** | Evaluation run `20261119T164501` (27/27 traced, 0 failed) in `eval-runs/`; `SUBMISSION.md` filled |
+| **M11** | **Submission ⭐** | ✅ **done** | Evaluation run `20261119T164501` (27/27 traced, 0 failed) in `eval-runs/`; `SUBMISSION.md` filled |
 
-**Next action:** M11 — invite the instructor to Langfuse (Member), then set "Invitation
-accepted" in `SUBMISSION.md`. All optional milestones are done.
+**Next action:** none required — all milestones done and the instructor has Langfuse access.
+Keep the GitHub repository public.
 
 **Known golden gaps (by design, not bugs):** S6/S7/S8 turn 4 expect the Webex request to be
 filed, but the M5 decision blocks it on recorded evidence (42/40 seats, AR001 blocked).
@@ -45,7 +45,7 @@ match a document path.
 **Open items that need you (not code):**
 - [x] Create your own remote repository and push `main` — done 2026-11-19. Push after each
       milestone (`git push`).
-- [ ] Get the instructor's email and invite them to Langfuse with the **Member** role.
+- [x] Get the instructor's email and invite them to Langfuse with the **Member** role — done 2026-11-19.
 - [ ] Remove unused keys from your local `.env` (`OPENSEARCH_COLLECTION`, `GOOGLE_API_KEY`,
       `GEMINI_MODEL_ID` — leftovers from earlier lessons; no code reads them).
 

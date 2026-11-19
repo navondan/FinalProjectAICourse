@@ -20,7 +20,7 @@ and it is how every trace gets found.
 | **Host region**    | `cloud.langfuse.com` EU |
 | **Project name**   | My Project |
 | **Instructor role**| Member *(required — traces are read through the API)* |
-| **Invitation accepted** | no — invitation pending (instructor email needed) |
+| **Invitation accepted** | yes — instructor added as Member on 2026-11-19 |
 
 ## 3. Scope completed
 
