@@ -1,0 +1,2 @@
+"""NovaOps operational company brain."""
+

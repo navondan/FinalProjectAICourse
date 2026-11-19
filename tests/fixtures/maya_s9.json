@@ -1,0 +1,46 @@
+{
+  "id": "S9-maya-own-account",
+  "caller_employee_id": "E001",
+  "synthetic_conversation_evidence": true,
+  "turns": [
+    {
+      "message": "What does the manager playbook say about giving feedback?",
+      "scope": "maya",
+      "intent": "policy_question",
+      "expected_citations": ["conversation:turn-1"],
+      "forbidden_tools": ["search_hr_documents"]
+    },
+    {
+      "message": "Forwarded email thread: Person A says, \"I can send the draft Tuesday.\" Person B replies, \"I will review it Wednesday.\" Person C says, \"I will archive the final copy.\" What did Person B agree to do?",
+      "scope": "maya",
+      "intent": "other",
+      "expected_citations": ["conversation:turn-2"],
+      "forbidden_tools": ["create_access_request", "create_ticket"]
+    },
+    {
+      "message": "Can we expand SaaS spending this quarter?",
+      "scope": "maya",
+      "intent": "policy_question",
+      "expected_citations": ["documents/internal_memos/saas_renewal_freeze_q3.md"],
+      "required_facts": ["USD 7,500", "Finance approval"]
+    },
+    {
+      "message": "Show me the manager guide's private feedback advice.",
+      "scope": "maya",
+      "intent": "policy_question",
+      "expected_citations": ["conversation:turn-4"],
+      "forbidden_tools": ["search_hr_documents"]
+    },
+    {
+      "message": "Show my onboarding checklist, including whether Webex can be provisioned.",
+      "scope": "maya",
+      "intent": "onboarding_status",
+      "expected_citations": [
+        "database:list_onboarding_tasks#OT005",
+        "database:check_software_subscription#Webex"
+      ],
+      "required_facts": ["42 active seats", "40-seat limit"],
+      "forbidden_tools": ["create_access_request", "create_ticket"]
+    }
+  ]
+}
