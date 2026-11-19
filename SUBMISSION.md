@@ -33,7 +33,7 @@ and it is how every trace gets found.
 
 | Optional stage | Done | Evidence |
 | ------------------------------- | -------- | -------- |
-| Lesson 12 — loop engineering     | yes | `novaops/evals/targets.py` (gate: distance, non-tradeable floors, noise floor), `novaops/evals/loop.py` (journal, budgets, human review), `eval-runs/loop-journal.json`, `eval-runs/loop-report.md` |
+| Lesson 12 — loop engineering     | yes | `novaops/evals/targets.py` (gate: distance, non-tradeable floors, noise floor), `novaops/evals/loop.py` (journal, budgets, human review), `eval-runs/loop-journal.json`, `eval-runs/loop-report.md`. Golden set, three full runs: baseline `c9b7cb9` 0.686 with the `forbidden_tools` floor broken → round 1 0.725, floor still broken, rejected → round 2 `823451a` 0.707, all floors clean, distance 1.680 → 1.558, promoted after human review. Gains under 0.03 are treated as noise |
 | Lesson 14 — packaging and deploy | yes | `novaops/api/app.py` (`/health`, `/ready`, `/chat`, `/approvals`), MCP `/health`, `novaops/workflows/renewal/worker.py`, `Dockerfile` (mcp/api/renewal-worker, non-root), `compose.yaml`, `scripts/build-images.*` (SHA tags), `tests/test_packaging.py`. Images not built locally (no Docker on the dev machine) |
 
 ## 4. Durable-behavior evidence
@@ -129,7 +129,7 @@ R-I-03`), into `eval-runs/runs-evaluation-optional.json` and
 `payment_terms`; V-I-03 missing `legal_name` and `security_review_required` (reported, never
 invented). R-I-01 applied 50 seats on 2026-07-21 with one notice; R-I-02 (conditional) and
 R-I-03 (ambiguous) went to a human with seats unchanged at 40. The optional work, including
-the eval-loop change (a no-tool `conversation_recall` intent), came after the commit reviewed
-for the required items; the required traces were not rerun. Renewal uses an explicit SQLite
+the eval-loop changes (a no-tool `conversation_recall` intent; "read-only lookups are never
+filing" in the planner), came after the commit reviewed for the required items; the required traces were not rerun. Renewal uses an explicit SQLite
 state machine rather than a durable-workflow engine, and packaging calls Bedrock directly
 (no LiteLLM gateway).

@@ -30,7 +30,7 @@ effort, required path first.
 | M6.5 | Evaluation run harness ⭐ | ✅ done | `M6.5-harness.md`; `cli run-set`; golden 79 turns: baseline 0.323 (67 failed) → 0.686 (0 failed), `eval-runs/` |
 | M7 | Vendor *(+5)* | ✅ done | `novaops/workflows/vendor/`; `tests/test_vendor.py`; V-I-01..03 traced (`eval-runs/*-evaluation-optional.json`) |
 | M8 | Renewal *(+10)* | ✅ done | `novaops/workflows/renewal/`; `tests/test_renewal.py`; R-I-01..03 traced (same files) |
-| M9 | Eval loop | ✅ done | `novaops/evals/targets.py`, `loop.py`; `tests/test_eval_loop.py`; `eval-runs/loop-journal.json`, `loop-report.md` |
+| M9 | Eval loop | ✅ done | `novaops/evals/targets.py`, `loop.py`; `tests/test_eval_loop.py`; `eval-runs/loop-report.md`: baseline 0.686 (floor broken) → round 2 0.707, floors clean, promoted |
 | M10 | Packaging *(+5)* | ✅ done | `novaops/api/`, `Dockerfile`, `compose.yaml`, `scripts/build-images.*`; `tests/test_packaging.py`; images not built (no local Docker) |
 | **M11** | **Submission ⭐** | 🟡 **almost** | Evaluation run `20261119T164501` (27/27 traced, 0 failed) in `eval-runs/`; `SUBMISSION.md` filled |
 
